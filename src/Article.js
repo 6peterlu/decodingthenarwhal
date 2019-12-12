@@ -26,8 +26,7 @@ const Article = (props) => {
       const response = await fetch(`../articles/${props.match.params.articleId}.txt`);
       const text = await response.text();
       const lines = text.split("\n");
-      if (lines[0].toLowerCase().trim() !== "<!doctype html>") { // hack
-        console.log(lines[0].toLowerCase())
+      if (!lines[0].toLowerCase().startsWith("<!doctype html>")) { // hack
         setArticleData({ feedbackURL: lines[0], title: lines[1], author: lines[2], date: lines[3], body: lines.slice(5) })
       }
     }
