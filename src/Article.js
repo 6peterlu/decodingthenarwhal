@@ -27,6 +27,7 @@ const Article = (props) => {
       const text = await response.text();
       const lines = text.split("\n");
       if (lines[0] !== "<!DOCTYPE html>") { // hack
+        console.log(lines[0])
         setArticleData({ feedbackURL: lines[0], title: lines[1], author: lines[2], date: lines[3], body: lines.slice(5) })
       }
     }
