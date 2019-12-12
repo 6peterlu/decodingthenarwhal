@@ -10,5 +10,6 @@ Date
 <whitespace>
 Blog body text
 ```
+You'll also need to include your article title in articles-list.txt.
 
 Merges to master will automatically update https://www.decodingthenarwhal.com.
