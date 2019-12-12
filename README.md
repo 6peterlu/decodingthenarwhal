@@ -2,7 +2,7 @@
 I'm not sure yet, but I hope it can be a place for people to read articles or stories that encourage them to see life in more positive ways.
 
 ## What's this about narwhals?
-I like narwhals a lot.
+I like narwhals a lot and I'm sad there's no emoji for them.
 
 ## Contributing
 Open a pull request to the public/articles folder with your post.
