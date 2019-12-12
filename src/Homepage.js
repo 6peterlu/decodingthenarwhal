@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
 import React from 'react';
-import { Button } from 'grommet';
+import { Box, Button, Text } from 'grommet';
+import styled from 'styled-components';
 
-import "file-system"
+const Header = styled(Text) `
+  display: block
+`
+const Subheader = styled(Text) `
+  display: block
+`
+
+const ArticleLink = styled(Button) `
+  color: black
+`
 
 const Homepage = () => {
   const [articleList, setArticleList] = React.useState([]);
@@ -22,11 +32,13 @@ const Homepage = () => {
     return lowercased.join("-");
   }
 
-  return <>
+  return <Box pad="xlarge">
+    <Header size="xxlarge" margin={{ bottom: "medium" }}>decoding the narwhal</Header>
+    <Subheader size="xlarge" margin={{ bottom: "small" }}>articles</Subheader>
     {articleList.map((article) => {
-      return <Link to={`article/${convertArticleTitleToURL(article)}`}><Button label={article} /></Link>
+      return <Link to={`article/${convertArticleTitleToURL(article)}`}><ArticleLink label={article} plain={true} hoverIndicator={true} /></Link>
     })}
-  </>
+  </Box>
 }
 
 export default Homepage;

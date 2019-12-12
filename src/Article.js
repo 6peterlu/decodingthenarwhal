@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'grommet';
+import { Box, Text } from 'grommet';
 import styled from "styled-components";
 
 const Title = styled(Text) `
@@ -28,18 +28,19 @@ const Article = (props) => {
     }
     retrieveData();
   }, [props.match.params])
-  return <>
+  return <Box pad="xlarge">
     {articleData ?
       <>
-        <Title>{articleData.title}</Title>
-        <Author>{articleData.author}</Author>
-        <Date>{articleData.date}</Date>
+        <Title size="xxlarge">{articleData.title}</Title>
+        <Author size="medium">{articleData.author}</Author>
+        <Date size="medium" margin={{ bottom: "medium" }}>{articleData.date}</Date>
+
         {articleData.body.map((paragraph) => {
-          return <Paragraph>{paragraph}</Paragraph>
+          return <Paragraph margin={{ vertical: "small" }}>{paragraph}</Paragraph>
         })}
       </>
       : <Text>No article at this URL</Text>}
-  </>
+  </Box>
 }
 
 export default Article;
