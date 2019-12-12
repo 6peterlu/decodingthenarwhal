@@ -4,6 +4,9 @@ I'm not sure yet, but I hope it can be a place for people to read articles or st
 ## What's this about narwhals?
 I like narwhals a lot and I'm sad there's no emoji for them.
 
+## Why is the code so poorly written?
+I don't know how to make websites.
+
 ## Contributing
 Open a pull request to the public/articles folder with your post.
 
