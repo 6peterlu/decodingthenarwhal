@@ -7,8 +7,11 @@ const Header = styled(Text) `
   display: block
 `
 
-const ArticleLink = styled(Button) `
+const BlackLink = styled(Button) `
   color: black
+`
+const GreenLink = styled(Button) `
+  color: green
 `
 
 const Homepage = () => {
@@ -35,8 +38,9 @@ const Homepage = () => {
 
     <Header size="xlarge" margin={{ bottom: "small" }}>articles</Header>
     {articleList.map((article) => {
-      return <Link to={`article/${convertArticleTitleToURL(article)}`}><ArticleLink label={article} plain={true} hoverIndicator={true} /></Link>
+      return <Link to={`article/${convertArticleTitleToURL(article)}`}><BlackLink label={article} plain={true} hoverIndicator={true} /></Link>
     })}
+    <GreenLink label="submit an article" plain={true} margin={{ top: "large" }} href="https://github.com/6peterlu/decodingthenarwhal" />
   </Box>
 }
 
