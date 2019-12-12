@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text } from 'grommet';
+import { Box, Button, Text } from 'grommet';
 import styled from "styled-components";
 
 const Title = styled(Text) `
@@ -15,6 +15,10 @@ const Paragraph = styled(Text) `
   display: block
 `
 
+const FeedbackButton = styled(Button) `
+  color: green
+`
+
 const Article = (props) => {
   const [articleData, setArticleData] = React.useState(null);
   React.useEffect(() => {
@@ -23,7 +27,7 @@ const Article = (props) => {
       const text = await response.text();
       const lines = text.split("\n");
       if (lines[0] !== "<!DOCTYPE html>") { // hack
-        setArticleData({ title: lines[0], author: lines[1], date: lines[2], body: lines.slice(4) })
+        setArticleData({ feedbackURL: lines[0], title: lines[1], author: lines[2], date: lines[3], body: lines.slice(5) })
       }
     }
     retrieveData();
@@ -38,8 +42,9 @@ const Article = (props) => {
         {articleData.body.map((paragraph) => {
           return <Paragraph margin={{ vertical: "small" }}>{paragraph}</Paragraph>
         })}
+        <FeedbackButton href={articleData.feedbackURL} label="submit your feedback here" plain={true} fill={false} margin={{ top: "large" }} />
       </>
-      : <Text>No article at this URL</Text>}
+      : <Text>Loading...</Text>}
   </Box>
 }
 

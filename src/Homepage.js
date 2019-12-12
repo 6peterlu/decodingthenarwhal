@@ -6,9 +6,6 @@ import styled from 'styled-components';
 const Header = styled(Text) `
   display: block
 `
-const Subheader = styled(Text) `
-  display: block
-`
 
 const ArticleLink = styled(Button) `
   color: black
@@ -33,8 +30,10 @@ const Homepage = () => {
   }
 
   return <Box pad="xlarge">
-    <Header size="xxlarge" margin={{ bottom: "medium" }}>decoding the narwhal</Header>
-    <Subheader size="xlarge" margin={{ bottom: "small" }}>articles</Subheader>
+    <Header size="xxlarge">decoding the narwhal</Header>
+    <Header size="large" margin={{ bottom: "medium" }}>🦄 + 🐳 = ?</Header>
+
+    <Header size="xlarge" margin={{ bottom: "small" }}>articles</Header>
     {articleList.map((article) => {
       return <Link to={`article/${convertArticleTitleToURL(article)}`}><ArticleLink label={article} plain={true} hoverIndicator={true} /></Link>
     })}
