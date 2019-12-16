@@ -1,5 +1,5 @@
 ## What's this blog about?
-I'm not sure yet, but I hope it can be a place for people to read articles or stories that encourage them to see life in more positive ways.
+I'm not sure yet, but I hope it can be a place for people to read articles or stories that encourage them to see life in more positive ways. It's also meant to be a place where aspiring writers can receive feedback on their work. Each article will contain a feedback link at the bottom that will link to wherever the author chooses to receive edits.
 
 ## What's this about narwhals?
 I like narwhals a lot and I'm sad there's no emoji for them.
@@ -40,7 +40,7 @@ It's a way to suggest changes to code (or in this case, writing). If you want to
 12. Click that button and follow the instructions on the next page to submit the pull request.
 
 ## That sounds really hard.
-I'll make a better way to submit articles, I promise.
+One day, I'll make a better way to submit articles, I promise. For now, you can also just email me at peter@decodingthenarwhal.com and I can help put it up!
 
 ## Why is it called a pull request if it's pushing code?
 I don't know.
