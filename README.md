@@ -42,5 +42,8 @@ It's a way to suggest changes to code (or in this case, writing). If you want to
 ## That sounds really hard.
 One day, I'll make a better way to submit articles, I promise. For now, you can also just email me at peter@decodingthenarwhal.com and I can help put it up!
 
+## What if I just want to submit a pull request to add functionality to the site?
+Not only are you more than welcome to do that, I will be forever indebted to you.
+
 ## Why is it called a pull request if it's pushing code?
 I don't know.
