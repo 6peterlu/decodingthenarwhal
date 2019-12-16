@@ -8,10 +8,12 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
   const [emailEntered, setEmailEntered] = React.useState("");
   const [buttonOutlineColor, setButtonOutlineColor] = React.useState("black");
   React.useEffect(() => {
-    let displayedMessage;
+    let displayedMessage = message;
     if (message) {
-      const htmlTagIndex = message.indexOf("<")
-      displayedMessage = message.slice(0, htmlTagIndex);
+      const htmlTagIndex = message.indexOf("<");
+      if (htmlTagIndex !== -1) {
+        displayedMessage = message.slice(0, htmlTagIndex);
+      }
     }
     if (status === "sending") {
       setSubscribeLabel("sending...")
