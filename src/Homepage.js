@@ -13,7 +13,7 @@ const BlackLink = styled(Button) `
 `
 const GreenLink = styled(Button) `
   color: green;
-  font-size: 30px;
+  font-size: 15px;
 `
 
 const Homepage = () => {
@@ -38,13 +38,17 @@ const Homepage = () => {
     <Header size="xxlarge">decoding the narwhal</Header>
     <Header size="large" margin={{ bottom: "medium" }}>🦄 + 🐳 = ?</Header>
 
-    <Header size="xlarge" margin={{ bottom: "small" }}>articles</Header>
+    <Box direction="row">
+      <Header size="xlarge" margin={{ bottom: "small" }}>articles</Header>
+      <GreenLink label="(submit an article)" plain={true} href="https://github.com/6peterlu/decodingthenarwhal" alignSelf="center" margin={{ left: "small" }} />
+    </Box>
     {articleList.map((article) => {
       return <Link to={`article/${convertArticleTitleToURL(article)}`}><BlackLink label={article} plain={true} hoverIndicator={true} /></Link >
     })}
     <Box direction="column-reverse" fill="vertical">
+
       <SubscriptionBox />
-      <GreenLink label="submit an article" plain={true} margin={{ bottom: "large" }} href="https://github.com/6peterlu/decodingthenarwhal" />
+      <Header size="small">want notifications for new articles?</Header>
     </Box>
   </Box>
 }

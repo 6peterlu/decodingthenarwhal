@@ -19,7 +19,7 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
       setSubscribeLabel(`failed: ${displayedMessage}`)
       setButtonOutlineColor("red");
     } else if (status === "success") {
-      setSubscribeLabel("success! confirm email to complete subscription.")
+      setSubscribeLabel("success!")
       setButtonOutlineColor("green");
     }
   }, [status, message])
