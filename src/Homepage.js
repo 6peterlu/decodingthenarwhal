@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import { Box, Button, Text } from 'grommet';
 import styled from 'styled-components';
+import SubscriptionBox from "./SubscriptionBox";
 
 const Header = styled(Text) `
   display: block
@@ -11,7 +12,8 @@ const BlackLink = styled(Button) `
   color: black
 `
 const GreenLink = styled(Button) `
-  color: green
+  color: green;
+  font-size: 30px;
 `
 
 const Homepage = () => {
@@ -32,15 +34,18 @@ const Homepage = () => {
     return lowercased.join("-");
   }
 
-  return <Box pad="xlarge">
+  return <Box pad="xlarge" fill={true}>
     <Header size="xxlarge">decoding the narwhal</Header>
     <Header size="large" margin={{ bottom: "medium" }}>🦄 + 🐳 = ?</Header>
 
     <Header size="xlarge" margin={{ bottom: "small" }}>articles</Header>
     {articleList.map((article) => {
-      return <Link to={`article/${convertArticleTitleToURL(article)}`}><BlackLink label={article} plain={true} hoverIndicator={true} /></Link>
+      return <Link to={`article/${convertArticleTitleToURL(article)}`}><BlackLink label={article} plain={true} hoverIndicator={true} /></Link >
     })}
-    <GreenLink label="submit an article" plain={true} margin={{ top: "large" }} href="https://github.com/6peterlu/decodingthenarwhal" />
+    <Box direction="column-reverse" fill="vertical">
+      <SubscriptionBox />
+      <GreenLink label="submit an article" plain={true} margin={{ bottom: "large" }} href="https://github.com/6peterlu/decodingthenarwhal" />
+    </Box>
   </Box>
 }
 
