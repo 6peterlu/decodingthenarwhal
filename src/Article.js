@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Button, Text } from 'grommet';
 import styled from "styled-components";
+import { readSingleArticle } from "./parser";
 
 const Title = styled(Text) `
   display: block
@@ -12,7 +13,8 @@ const Date = styled(Text) `
   display: block
 `
 const Paragraph = styled(Text) `
-  display: block
+  display: block;
+  font-family: 'Average', serif;
 `
 
 const FeedbackButton = styled(Button) `
@@ -23,26 +25,22 @@ const Article = (props) => {
   const [articleData, setArticleData] = React.useState(null);
   React.useEffect(() => {
     const retrieveData = async () => {
-      const response = await fetch(`../articles/${props.match.params.articleId}.txt`);
-      const text = await response.text();
-      const lines = text.split("\n");
-      if (!lines[0].toLowerCase().startsWith("<!doctype html>")) { // hack
-        setArticleData({ feedbackURL: lines[0], title: lines[1], author: lines[2], date: lines[3], body: lines.slice(5) })
-      }
+      const data = await readSingleArticle(props.match.params.articleId);
+      setArticleData(data); // data is nullable
     }
     retrieveData();
   }, [props.match.params])
   return <Box pad="xlarge">
     {articleData ?
       <>
-        <Title size="xxlarge">{articleData.title}</Title>
-        <Author size="medium">{articleData.author}</Author>
-        <Date size="medium" margin={{ bottom: "medium" }}>{articleData.date}</Date>
+        <Title size="xxlarge">{articleData.TITLE}</Title>
+        <Author size="medium">{articleData.AUTHOR}</Author>
+        <Date size="medium" margin={{ bottom: "medium" }}>{articleData.DATE.toISOString().split("T")[0]}</Date>
 
-        {articleData.body.map((paragraph) => {
+        {articleData.BODY.map((paragraph) => {
           return <Paragraph margin={{ vertical: "small" }}>{paragraph}</Paragraph>
         })}
-        <FeedbackButton href={articleData.feedbackURL} label="submit your feedback here" plain={true} fill={false} margin={{ top: "large" }} />
+        <FeedbackButton href={articleData.FEEDBACK} label="submit your feedback here" plain={true} fill={false} margin={{ top: "large" }} />
       </>
       : <Text>Loading...</Text>}
   </Box>
