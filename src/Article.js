@@ -13,6 +13,10 @@ const Author = styled(Text) `
 const Date = styled(Text) `
   display: block
 `
+const Editors = styled(Text)`
+  display: block;
+  font-style: italic;
+`
 const Paragraph = styled(Text) `
   display: block;
   font-family: 'Average', serif;
@@ -21,6 +25,22 @@ const Paragraph = styled(Text) `
 const FeedbackButton = styled(Button) `
   color: green
 `
+const generateEditorsString = (editorList) => {
+  const creditPrefix = "With edits from ";
+  const creditSuffix = ".";
+  let editorString = "";
+  if (editorList.length === 1) {
+      editorString = editorList[0];
+  } else {
+    editorList[editorList.length - 1] = "and " + editorList[editorList.length - 1];
+    if (editorList.length > 2) {
+      editorString = editorList.join(", ");
+    } else {
+      editorString = editorList.join(" ");
+    }
+  }
+  return `${creditPrefix + editorString + creditSuffix}`;
+}
 
 const Article = (props) => {
   const [articleData, setArticleData] = React.useState(null);
@@ -42,12 +62,13 @@ const Article = (props) => {
       <>
         <Title size="xxlarge">{articleData.TITLE}</Title>
         <Author size="medium">{articleData.AUTHOR}</Author>
-        <Date size="medium" margin={{ bottom: "medium" }}>{articleData.DATE.toISOString().split("T")[0]}</Date>
+        <Date size="small" margin={{ bottom: "medium" }}>{articleData.DATE.toISOString().split("T")[0]}</Date>
 
         {articleData.BODY.map((paragraph) => {
           return <Paragraph margin={{ vertical: "small" }}>{paragraph}</Paragraph>
         })}
-        <FeedbackButton href={articleData.FEEDBACK} label="submit your feedback here" plain={true} fill={false} margin={{ top: "large" }} />
+        {articleData.EDITORS ? <Editors margin={{vertical: "large"}} size="small">{generateEditorsString(articleData.EDITORS)}</Editors> : null}
+        <FeedbackButton href={articleData.FEEDBACK} label="submit your feedback here" plain={true} fill={false} />
       </>
       : <Text>Loading...</Text>}
   </Box>
