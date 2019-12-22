@@ -1,14 +1,14 @@
 TITLE:On Timeline Moments
 AUTHOR:Peter Lu
-DATE:2019-12-10
-URL:https://www.decodingthenarwhal.com/article/on-timeline-moments
+DATE:2019/12/10
+URL:http://localhost:3001/article/on-timeline-moments
 FEEDBACK:https://medium.com/@6peterlu/on-timeline-moments-7176f310f3b5
 HOST:
 EDITORS:Anika Raghuvanshi|Madison Coots|Caroline Young|Claire Shu|Annie Brantigan
 ==
 TITLE:Glimpsing the top of the world
 AUTHOR:Anika Raghuvanshi
-DATE:2019-12-19
+DATE:2019/12/19
 URL:https://medium.com/@anika.raghuvanshi/glimpsing-the-top-of-the-world-ee123d393832
 FEEDBACK:
 HOST:Medium
