@@ -1,7 +1,7 @@
 TITLE:On Timeline Moments
 AUTHOR:Peter Lu
 DATE:2019/12/10
-URL:http://localhost:3001/article/on-timeline-moments
+URL:https://www.decodingthenarwhal.com/article/on-timeline-moments
 FEEDBACK:https://medium.com/@6peterlu/on-timeline-moments-7176f310f3b5
 HOST:
 EDITORS:Anika Raghuvanshi|Madison Coots|Caroline Young|Claire Shu|Annie Brantigan
