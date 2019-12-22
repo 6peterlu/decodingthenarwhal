@@ -35,16 +35,16 @@ const Homepage = () => {
 
   return <Box pad="xlarge" fill={true}>
     <Header size="xxlarge" weight="bold">decoding the narwhal</Header>
-    <Header size="large" weight="bold" margin={{ bottom: "medium" }}>🦄 + 🐳 = ?</Header>
+    <Header size="large" weight="bold" margin={{ bottom: "large" }}>🦄 + 🐳 = ?</Header>
 
     <Box direction="row">
       <Header size="xlarge" weight="bold" margin={{ bottom: "small" }}>articles</Header>
       <GreenLink label="(submit an article)" plain={true} href="https://github.com/6peterlu/decodingthenarwhal" alignSelf="center" margin={{ left: "xsmall" }} />
     </Box>
-    <Box gap="small" margin={{ top: "small" }}>
+    <Box margin={{ top: "medium" }} flex="grow" gap="xsmall">
       {articleList.map((article) => {
         return (
-          <Box direction="row" align="end" alignContent="end">
+          <Box direction="row" align="end" alignContent="end" wrap={true}>
             <a href={article.URL}><BlackLink label={article.TITLE} plain={true} hoverIndicator={true} /></a>
             <Text size="small" margin={{ left: "small" }}>{`by ${article.AUTHOR}${article.HOST ? ' on ' + article.HOST : ''}`}</Text>
           </Box>
