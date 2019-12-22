@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import { Box, Button, Text } from 'grommet';
 import styled from 'styled-components';
 import SubscriptionBox from "./SubscriptionBox";
@@ -23,6 +24,11 @@ const Homepage = () => {
     const retrieveData = async () => {
       const articleData = await readArticleList();
       setArticleList(articleData);
+      // google analytics
+      const currentURL = process.env.NODE_ENV === "production" ? "https://www.decodingthenarwhal.com" : "http://localhost:3001";
+      ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
+      ReactGA.set({ page: currentURL })
+      ReactGA.pageview(currentURL);
     }
     retrieveData();
   }, [])

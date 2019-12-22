@@ -13,7 +13,7 @@ const extractField = (line, extractFormat) => {
   }
 }
 
-const articleRootPath = `${process.env.ROOT_URL}/article/`
+const articleRootPath = `${process.env.NODE_ENV === "production" ? "https://www.decodingthenarwhal.com" : "http://localhost:3001"}/article/`
 
 export const readArticleList = async () => {
   const fieldsToExtract = [
