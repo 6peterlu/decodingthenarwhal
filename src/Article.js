@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button, ResponsiveContext, Text } from 'grommet';
 import styled from "styled-components";
 import { readSingleArticle } from "./parser";
 import { LinkPrevious } from "grommet-icons";
@@ -49,6 +49,7 @@ const generateEditorsString = (editorList) => {
 
 const Article = (props) => {
   const [articleData, setArticleData] = React.useState(null);
+  const size = React.useContext(ResponsiveContext);
   React.useEffect(() => {
     const retrieveData = async () => {
       const data = await readSingleArticle(props.match.params.articleId);
@@ -62,9 +63,9 @@ const Article = (props) => {
     retrieveData();
   }, [props.match.params])
   return(
-  <Box align="center" pad="xlarge">
+  <Box align="center" pad={size === "wide" ? "xlarge" : "large"}>
   <Box width={{max: "large"}}>
-    <HomeButton margin={{bottom: "large"}} label="🦄 + 🐳" color="black" icon={<LinkPrevious size="medium"/>}  alignSelf="start" href={process.env.NODE_ENV === "production" ? "https://www.decodingthenarwhal.com": "http://localhost:3001"}/>
+    <HomeButton margin={{bottom: "medium"}} label="🦄 + 🐳" color="black" icon={<LinkPrevious size="medium"/>}  alignSelf="start" href={process.env.NODE_ENV === "production" ? "https://www.decodingthenarwhal.com": "http://localhost:3001"}/>
     {articleData ?
       <>
         <Title size="xxlarge">{articleData.TITLE}</Title>
