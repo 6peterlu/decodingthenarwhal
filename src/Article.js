@@ -3,6 +3,7 @@ import ReactGA from 'react-ga';
 import { Box, Button, Text } from 'grommet';
 import styled from "styled-components";
 import { readSingleArticle } from "./parser";
+import { LinkPrevious } from "grommet-icons";
 
 const Title = styled(Text) `
   display: block
@@ -24,6 +25,10 @@ const Paragraph = styled(Text) `
 
 const FeedbackButton = styled(Button) `
   color: green
+`
+
+const HomeButton=styled(Button)`
+  font-weight:bold;
 `
 const generateEditorsString = (editorList) => {
   const creditPrefix = "With edits from ";
@@ -58,6 +63,7 @@ const Article = (props) => {
     retrieveData();
   }, [props.match.params])
   return <Box pad="xlarge">
+    <HomeButton margin={{bottom: "large"}} label="🦄 + 🐳" color="black" icon={<LinkPrevious size="medium"/>}  alignSelf="start" href={process.env.NODE_ENV === "production" ? "https://www.decodingthenarwhal.com": "http://localhost:3001"}/>
     {articleData ?
       <>
         <Title size="xxlarge">{articleData.TITLE}</Title>
