@@ -54,7 +54,6 @@ const Article = (props) => {
       const data = await readSingleArticle(props.match.params.articleId);
       setArticleData(data); // data is nullable
       // google analytics
-      console.log(process.env.REACT_APP_GA_TRACKING_ID);
       ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
       const currentURL = `${process.env.NODE_ENV === "production" ? "https://www.decodingthenarwhal.com": "http://localhost:3001"}/article/${props.match.params.articleId}`;
       ReactGA.set({page: currentURL})
