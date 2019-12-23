@@ -62,7 +62,9 @@ const Article = (props) => {
     }
     retrieveData();
   }, [props.match.params])
-  return <Box pad="xlarge">
+  return(
+  <Box align="center" pad="xlarge">
+  <Box width={{max: "large"}}>
     <HomeButton margin={{bottom: "large"}} label="🦄 + 🐳" color="black" icon={<LinkPrevious size="medium"/>}  alignSelf="start" href={process.env.NODE_ENV === "production" ? "https://www.decodingthenarwhal.com": "http://localhost:3001"}/>
     {articleData ?
       <>
@@ -78,6 +80,7 @@ const Article = (props) => {
       </>
       : <Text>Loading...</Text>}
   </Box>
+  </Box>);
 }
 
 export default Article;
