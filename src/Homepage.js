@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button, ResponsiveContext, Text } from 'grommet';
 import styled from 'styled-components';
 import SubscriptionBox from "./SubscriptionBox";
 import { readArticleList } from "./parser";
@@ -20,6 +20,7 @@ const GreenLink = styled(Button) `
 
 const Homepage = () => {
   const [articleList, setArticleList] = React.useState([]);
+  const size = React.useContext(ResponsiveContext);
   React.useEffect(() => {
     const retrieveData = async () => {
       const articleData = await readArticleList();
@@ -33,7 +34,7 @@ const Homepage = () => {
     retrieveData();
   }, [])
 
-  return <Box pad="xlarge" fill={true}>
+  return <Box pad={size === "wide" ? "xlarge" : "large"} fill={true}>
     <Header size="xxlarge" weight="bold">decoding the narwhal</Header>
     <Header size="large" weight="bold" margin={{ bottom: "large" }}>🦄 + 🐳 = ?</Header>
 
