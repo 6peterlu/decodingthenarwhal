@@ -14,3 +14,11 @@ FEEDBACK:
 HOST:Medium
 EDITORS:
 ==
+TITLE:Why Teleportation is the Best Superpower
+AUTHOR:Peter Lu
+DATE:2020/01/20
+URL:http://localhost:3001/article/why-teleportation-is-the-best-superpower
+FEEDBACK:https://docs.google.com/document/d/1HmUl-Tb2Z8Lr1iLQC1TrMoRSyJvx5PIh0XFZwgofwAI/edit?usp=sharing
+HOST:
+EDITORS:Anika Raghuvanshi
+==
