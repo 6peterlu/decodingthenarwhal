@@ -5,7 +5,7 @@ const extractField = (line, extractFormat) => {
     case "string":
       return linePredicate;
     case "list":
-      return linePredicate.split("|");
+      return linePredicate ? linePredicate.split("|") : [];
     case "date":
       return new Date(linePredicate + " PST");
     default:
