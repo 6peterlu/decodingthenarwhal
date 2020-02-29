@@ -1,4 +1,4 @@
-TITLE:On Timeline Moments
+TITLE:On timeline moments
 AUTHOR:Peter Lu
 DATE:2019/12/10
 URL:https://www.decodingthenarwhal.com/article/on-timeline-moments
@@ -14,7 +14,7 @@ FEEDBACK:
 HOST:Medium
 EDITORS:
 ==
-TITLE:Why Teleportation is the Best Superpower
+TITLE:Why teleportation is the best superpower
 AUTHOR:Peter Lu
 DATE:2020/01/20
 URL:https://www.decodingthenarwhal.com/article/why-teleportation-is-the-best-superpower
@@ -22,3 +22,10 @@ FEEDBACK:https://docs.google.com/document/d/1HmUl-Tb2Z8Lr1iLQC1TrMoRSyJvx5PIh0XF
 HOST:
 EDITORS:Anika Raghuvanshi
 ==
+TITLE:COVID-19, a snapshot
+AUTHOR:Peter Lu
+DATE:2020/2/29
+URL:https://www.decodingthenarwhal.com/article/covid-19-a-snapshot
+FEEDBACK:https://docs.google.com/document/d/1ZOx48D0Q1ObiUqhnOlf-P-WCDHOgpLsOMrdeBbUOKWc/edit
+HOST:
+EDITORS:
