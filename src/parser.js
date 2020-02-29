@@ -11,9 +11,13 @@ const extractField = (line, extractFormat) => {
     default:
       return linePredicate;
   }
-}
+};
 
-const articleRootPath = `${process.env.NODE_ENV === "production" ? "https://www.decodingthenarwhal.com" : "http://localhost:3001"}/article/`
+const articleRootPath = `${
+  process.env.NODE_ENV === "production"
+    ? "https://www.decodingthenarwhal.com"
+    : "http://localhost:3001"
+}/article/`;
 
 export const readArticleList = async () => {
   const fieldsToExtract = [
@@ -24,7 +28,7 @@ export const readArticleList = async () => {
     ["FEEDBACK", "string"],
     ["HOST", "string"],
     ["EDITORS", "list"]
-  ] // this must be ordered.
+  ]; // this must be ordered.
   const response = await fetch(`../article-list.txt`);
   const text = await response.text();
   const lines = text.split("\n");
@@ -38,14 +42,19 @@ export const readArticleList = async () => {
       currentFieldIndex = 0;
       continue;
     }
-    currentArticleData[fieldsToExtract[currentFieldIndex][0]] = extractField(line, fieldsToExtract[currentFieldIndex]);
+    currentArticleData[fieldsToExtract[currentFieldIndex][0]] = extractField(
+      line,
+      fieldsToExtract[currentFieldIndex]
+    );
     currentFieldIndex += 1;
   }
-  aggregateArticleInfo.sort((a, b) => { return b.DATE - a.DATE; });
+  aggregateArticleInfo.sort((a, b) => {
+    return b.DATE - a.DATE;
+  });
   return aggregateArticleInfo;
-}
+};
 
-export const readSingleArticle = async (articleSubURL) => {
+export const readSingleArticle = async articleSubURL => {
   const allArticles = await readArticleList();
   let articleMetadata;
   // get our article out of list
@@ -64,4 +73,4 @@ export const readSingleArticle = async (articleSubURL) => {
   const lines = text.split("\n");
   articleMetadata.BODY = lines;
   return articleMetadata;
-}
+};

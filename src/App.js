@@ -1,7 +1,7 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Article from "./Article";
 import Homepage from "./Homepage";
-import React from 'react';
+import React from "react";
 
 function App() {
   return (
@@ -15,5 +15,3 @@ function App() {
 }
 
 export default App;
-
-
