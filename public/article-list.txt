@@ -28,5 +28,5 @@ DATE:2020/2/29
 URL:https://www.decodingthenarwhal.com/article/covid-19-a-snapshot
 FEEDBACK:https://docs.google.com/document/d/1ZOx48D0Q1ObiUqhnOlf-P-WCDHOgpLsOMrdeBbUOKWc/edit
 HOST:
-EDITORS:
+EDITORS:Caroline Young
 ==
