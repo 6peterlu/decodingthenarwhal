@@ -5,21 +5,26 @@ import styled from "styled-components";
 import SubscriptionBox from "./SubscriptionBox";
 import { readArticleList } from "./parser";
 
-const Header = styled(Text)`
+const Header = styled(Text) `
   display: block;
 `;
 
-const BlackLink = styled(Button)`
+const BlackLink = styled(Button) `
   color: black;
   font-size: 24px;
 `;
-const GreenLink = styled(Button)`
+const GreenLink = styled(Button) `
   color: green;
   font-size: 15px;
 `;
 
+const activeQuestionStyle = { color: "blue", fontStyle: "italic", cursor: "pointer" }
+const defaultQuestionStyle = { textDecoration: "none" }
+
 const Homepage = () => {
   const [articleList, setArticleList] = React.useState([]);
+  const [aboutVisible, setAboutVisible] = React.useState(false);
+  const [questionStyle, setQuestionStyle] = React.useState(defaultQuestionStyle)
   const size = React.useContext(ResponsiveContext);
   React.useEffect(() => {
     const retrieveData = async () => {
@@ -42,11 +47,18 @@ const Homepage = () => {
       <Header size="xxlarge" weight="bold">
         decoding the narwhal
       </Header>
-      <Header size="large" weight="bold" margin={{ bottom: "large" }}>
-        🦄 + 🐳 = ?
-      </Header>
+      <Box margin={{ bottom: "large" }}>
+        <Header size="large" weight="bold" >
+          🦄 + 🐳 = <a onClick={() => { setAboutVisible(!aboutVisible) }} onMouseOver={() => { setQuestionStyle(activeQuestionStyle) }} onMouseOut={() => { setQuestionStyle(defaultQuestionStyle) }} style={questionStyle}>?</a>
+        </Header>
+        {aboutVisible &&
+        <>
+          <Text>This website is Peter's attempt to encourage himself and others to write more things (:</Text>
+        </>
+        }
+      </Box>
 
-      <Box direction="row">
+      <Box direction="row" margin={{top: "large"}}>
         <Header size="xlarge" weight="bold" margin={{ bottom: "small" }}>
           articles
         </Header>
@@ -58,7 +70,7 @@ const Homepage = () => {
           margin={{ left: "xsmall" }}
         />
       </Box>
-      <Box margin={{ top: "medium" }} flex="grow" gap="xsmall">
+      <Box margin={{ top: "medium", bottom: "large" }} flex="grow" gap="xsmall">
         {articleList.map(article => {
           return (
             <Box direction="row" align="end" alignContent="end" wrap={true}>
@@ -71,16 +83,17 @@ const Homepage = () => {
               </a>
               <Text size="small" margin={{ left: "small" }}>{`by ${
                 article.AUTHOR
-              }${article.HOST ? " on " + article.HOST : ""}`}</Text>
+                }${article.HOST ? " on " + article.HOST : ""}`}</Text>
             </Box>
           );
         })}
       </Box>
+
       <Box direction="column-reverse" fill="vertical">
         <SubscriptionBox />
         <Header size="small">want notifications for new articles?</Header>
       </Box>
-    </Box>
+    </Box >
   );
 };
 

@@ -30,3 +30,11 @@ FEEDBACK:https://docs.google.com/document/d/1ZOx48D0Q1ObiUqhnOlf-P-WCDHOgpLsOMrd
 HOST:
 EDITORS:Caroline Young
 ==
+TITLE:Archers and airports
+AUTHOR:Peter Lu
+DATE:2020/3/28
+URL:https://www.decodingthenarwhal.com/article/archers-and-airports
+FEEDBACK:https://docs.google.com/document/d/1ZOx48D0Q1ObiUqhnOlf-P-WCDHOgpLsOMrdeBbUOKWc/edit
+HOST:
+EDITORS:Caroline Young|Madison Coots|Anika Raghuvanshi
+==
