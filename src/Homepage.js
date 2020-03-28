@@ -47,18 +47,18 @@ const Homepage = () => {
       <Header size="xxlarge" weight="bold">
         decoding the narwhal
       </Header>
-      <Box margin={{ bottom: "large" }}>
+      <Box margin={{ bottom: "xlarge" }}>
         <Header size="large" weight="bold" >
           🦄 + 🐳 = <a onClick={() => { setAboutVisible(!aboutVisible) }} onMouseOver={() => { setQuestionStyle(activeQuestionStyle) }} onMouseOut={() => { setQuestionStyle(defaultQuestionStyle) }} style={questionStyle}>?</a>
         </Header>
         {aboutVisible &&
-        <>
-          <Text>This website is Peter's attempt to encourage himself and others to write more things (:</Text>
-        </>
+          <>
+            <Text margin={size !== "wide" ? { bottom: "xlarge" } : null}>This website is Peter's attempt to encourage himself and others to write more things (:</Text>
+          </>
         }
       </Box>
 
-      <Box direction="row" margin={{top: "large"}}>
+      <Box direction="row">
         <Header size="xlarge" weight="bold" margin={{ bottom: "small" }}>
           articles
         </Header>
