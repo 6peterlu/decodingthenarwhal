@@ -38,3 +38,11 @@ FEEDBACK:https://docs.google.com/document/d/1xv5hbRkzUnnMFkr9-TsaDiB3CV-QXsCzoQ1
 HOST:
 EDITORS:Caroline Young|Madison Coots|Anika Raghuvanshi
 ==
+TITLE:Know My Name - depictions of truth
+AUTHOR:Peter Lu
+DATE:2020/5/7
+URL:https://www.decodingthenarwhal.com/article/know-my-name-depictions-of-truth
+FEEDBACK:https://docs.google.com/document/d/12q4UyY-i-T_yefLXF3ZbtJR6MpYiLAQgnIBguAqfmfQ/edit
+HOST:
+EDITORS:Madison Coots
+==
