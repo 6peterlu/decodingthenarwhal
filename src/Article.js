@@ -24,7 +24,7 @@ const Paragraph = styled(Text)`
 `;
 
 const FeedbackButton = styled(Button)`
-  color: green;
+  color: #D1D1D1;
 `;
 
 const HomeButton = styled(Button)`
@@ -105,10 +105,22 @@ const Article = props => {
             ) : null}
             <FeedbackButton
               href={articleData.FEEDBACK}
-              label="submit your feedback here"
+              label="comment on article here"
               plain={true}
               fill={false}
             />
+            <HomeButton
+              margin={{ top: "medium" }}
+              label="🦄 + 🐳"
+              color="white"
+              icon={<LinkPrevious size="medium" />}
+              alignSelf="start"
+              href={
+                process.env.NODE_ENV === "production"
+                  ? "https://www.decodingthenarwhal.com"
+                  : "http://localhost:3000"
+              }
+          />
           </>
         )}
       </Box>

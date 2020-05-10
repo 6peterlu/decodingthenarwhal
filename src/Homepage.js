@@ -67,11 +67,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <Box
-      pad={size === "wide" ? "xlarge" : "large"}
-      fill={true}
-      background="#C0E6DE"
-    >
+    <Box pad={size === "wide" ? "xlarge" : "large"} fill={true}>
       <Header size="xxlarge" weight="bold" color="#829399">
         decoding the narwhal
       </Header>
