@@ -67,12 +67,9 @@ const Article = props => {
     };
     retrieveData();
   }, [props.match.params]);
-  return (
+  return articleData ? (
     <Box align="center" pad={size === "wide" ? "xlarge" : "large"} background="#586F7C" animation="fadeIn">
       <Box width={{ max: "large" }}>
-
-        {articleData && (
-          <>
             <HomeButton
               margin={{ bottom: "medium" }}
               label="🦄 + 🐳"
@@ -121,11 +118,10 @@ const Article = props => {
                   : "http://localhost:3000"
               }
           />
-          </>
-        )}
+
       </Box>
     </Box>
-  );
+  ) : null;
 };
 
 export default Article;

@@ -67,7 +67,11 @@ const Homepage = () => {
   }, []);
 
   return (
-    <Box pad={size === "wide" ? "xlarge" : "large"} fill={true}>
+    <Box
+      pad={size === "wide" ? "xlarge" : "large"}
+      fill={true}
+      animation="fadeIn"
+    >
       <Header size="xxlarge" weight="bold" color="#829399">
         decoding the narwhal
       </Header>
@@ -97,7 +101,7 @@ const Homepage = () => {
         )}
       </Box>
 
-      <Box direction="row" margin={{ bottom: "medium" }}>
+      <Box direction="row" margin={{ bottom: "large" }}>
         <Header size="xlarge" weight="bold" color="#829399">
           articles
         </Header>
@@ -117,12 +121,12 @@ const Homepage = () => {
           );
         })}
       </Box>
-      <Box direction="row" margin={{ bottom: "medium" }}>
+      <Box direction="row" margin={{ bottom: "large" }}>
         <Header size="xlarge" weight="bold" color="#829399">
           other cool reading
         </Header>
       </Box>
-      <Box margin={{ top: "medium", bottom: "large" }} flex="grow" gap="xsmall">
+      <Box margin={{ top: "medium" }} gap="xsmall" flex="grow">
         {externalLinks.map((linkData) => {
           return (
             <a href={linkData.url}>
@@ -137,6 +141,7 @@ const Homepage = () => {
           );
         })}
       </Box>
+      <Box height="xsmall" flex="grow" />
 
       <Box direction="column-reverse" fill="vertical">
         <SubscriptionBox />
