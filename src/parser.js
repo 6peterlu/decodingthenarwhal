@@ -16,7 +16,7 @@ const extractField = (line, extractFormat) => {
 const articleRootPath = `${
   process.env.NODE_ENV === "production"
     ? "https://www.decodingthenarwhal.com"
-    : "http://localhost:3001"
+    : "http://localhost:3000"
 }/article/`;
 
 export const readArticleList = async () => {

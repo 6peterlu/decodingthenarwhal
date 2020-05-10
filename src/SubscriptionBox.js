@@ -6,7 +6,7 @@ import { Box, Button, TextInput } from "grommet";
 const SubscriptionForm = ({ subscribe, status, message }) => {
   const [subscribeLabel, setSubscribeLabel] = React.useState("subscribe");
   const [emailEntered, setEmailEntered] = React.useState("");
-  const [buttonOutlineColor, setButtonOutlineColor] = React.useState("black");
+  const [buttonOutlineColor, setButtonOutlineColor] = React.useState("#829399");
   React.useEffect(() => {
     let displayedMessage = message;
     if (message) {
@@ -40,6 +40,7 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
           subscribe({ EMAIL: emailEntered });
         }}
         color={buttonOutlineColor}
+        style={{"color": "#829399"}}
       />
     </Box>
   );

@@ -5,26 +5,50 @@ import styled from "styled-components";
 import SubscriptionBox from "./SubscriptionBox";
 import { readArticleList } from "./parser";
 
-const Header = styled(Text) `
+const Header = styled(Text)`
   display: block;
 `;
 
-const BlackLink = styled(Button) `
+const BlackLink = styled(Button)`
   color: black;
-  font-size: 24px;
-`;
-const GreenLink = styled(Button) `
-  color: green;
-  font-size: 15px;
+  font-size: 18px;
 `;
 
-const activeQuestionStyle = { color: "blue", fontStyle: "italic", cursor: "pointer" }
-const defaultQuestionStyle = { textDecoration: "none" }
+const activeQuestionStyle = {
+  color: "blue",
+  fontStyle: "italic",
+  cursor: "pointer",
+};
+const defaultQuestionStyle = { textDecoration: "none" };
+
+const externalLinks = [
+  {
+    url:
+      "https://medium.com/@anika.raghuvanshi/glimpsing-the-top-of-the-world-ee123d393832",
+    title: "My friend's experience hiking to Everest basecamp",
+  },
+  {
+    url:
+      "https://humanparts.medium.com/the-funny-thing-about-depression-is-that-its-not-funny-73eca71622a6",
+    title: "A story about depression",
+  },
+  {
+    url:
+      "http://www.kameli.net/~raimu/rnd/ted-chiang-story-of-your-life-2000.pdf",
+    title: "The short story Arrival was based on",
+  },
+  {
+    url: "https://www.lewissociety.org/innerring/",
+    title: "C. S. Lewis's musings on being an 'insider'",
+  },
+];
 
 const Homepage = () => {
   const [articleList, setArticleList] = React.useState([]);
   const [aboutVisible, setAboutVisible] = React.useState(false);
-  const [questionStyle, setQuestionStyle] = React.useState(defaultQuestionStyle)
+  const [questionStyle, setQuestionStyle] = React.useState(
+    defaultQuestionStyle
+  );
   const size = React.useContext(ResponsiveContext);
   React.useEffect(() => {
     const retrieveData = async () => {
@@ -43,57 +67,88 @@ const Homepage = () => {
   }, []);
 
   return (
-    <Box pad={size === "wide" ? "xlarge" : "large"} fill={true}>
-      <Header size="xxlarge" weight="bold">
+    <Box
+      pad={size === "wide" ? "xlarge" : "large"}
+      fill={true}
+      background="#C0E6DE"
+    >
+      <Header size="xxlarge" weight="bold" color="#829399">
         decoding the narwhal
       </Header>
-      <Box margin={{ bottom: "xlarge" }}>
-        <Header size="large" weight="bold" >
-          🦄 + 🐳 = <a onClick={() => { setAboutVisible(!aboutVisible) }} onMouseOver={() => { setQuestionStyle(activeQuestionStyle) }} onMouseOut={() => { setQuestionStyle(defaultQuestionStyle) }} style={questionStyle}>?</a>
+      <Box margin={{ bottom: "large" }} flex="grow">
+        <Header size="large" weight="bold" color="#829399">
+          🦄 + 🐳 ={" "}
+          <a
+            onClick={() => {
+              setAboutVisible(!aboutVisible);
+            }}
+            onMouseOver={() => {
+              setQuestionStyle(activeQuestionStyle);
+            }}
+            onMouseOut={() => {
+              setQuestionStyle(defaultQuestionStyle);
+            }}
+            style={questionStyle}
+          >
+            ?
+          </a>
         </Header>
-        {aboutVisible &&
-          <>
-            <Text margin={size !== "wide" ? { bottom: "xlarge" } : null}>This website is Peter's attempt to encourage himself and others to write more things (:</Text>
-          </>
-        }
+        {aboutVisible && (
+          <Text>
+            This website is Peter's attempt to encourage himself and others to
+            write more things (:
+          </Text>
+        )}
       </Box>
 
-      <Box direction="row">
-        <Header size="xlarge" weight="bold" margin={{ bottom: "small" }}>
+      <Box direction="row" margin={{ bottom: "medium" }}>
+        <Header size="xlarge" weight="bold" color="#829399">
           articles
         </Header>
-        <GreenLink
-          label="(submit an article)"
-          plain={true}
-          href="https://github.com/6peterlu/decodingthenarwhal"
-          alignSelf="center"
-          margin={{ left: "xsmall" }}
-        />
       </Box>
       <Box margin={{ top: "medium", bottom: "large" }} flex="grow" gap="xsmall">
-        {articleList.map(article => {
+        {articleList.map((article) => {
           return (
-            <Box direction="row" align="end" alignContent="end" wrap={true}>
-              <a href={article.URL}>
-                <BlackLink
-                  label={article.TITLE}
-                  plain={true}
-                  hoverIndicator={true}
-                />
-              </a>
-              <Text size="small" margin={{ left: "small" }}>{`by ${
-                article.AUTHOR
-                }${article.HOST ? " on " + article.HOST : ""}`}</Text>
-            </Box>
+            <a href={article.URL}>
+              <BlackLink
+                plain={true}
+                hoverIndicator={true}
+                margin={{ bottom: "xxsmall" }}
+                size="small"
+                label={article.TITLE}
+              />
+            </a>
+          );
+        })}
+      </Box>
+      <Box direction="row" margin={{ bottom: "medium" }}>
+        <Header size="xlarge" weight="bold" color="#829399">
+          other cool reading
+        </Header>
+      </Box>
+      <Box margin={{ top: "medium", bottom: "large" }} flex="grow" gap="xsmall">
+        {externalLinks.map((linkData) => {
+          return (
+            <a href={linkData.url}>
+              <BlackLink
+                plain={true}
+                hoverIndicator={true}
+                margin={{ bottom: "xxsmall" }}
+                size="small"
+                label={linkData.title}
+              />
+            </a>
           );
         })}
       </Box>
 
       <Box direction="column-reverse" fill="vertical">
         <SubscriptionBox />
-        <Header size="small">want notifications for new articles?</Header>
+        <Header size="small" color="#829399">
+          want notifications for new articles?
+        </Header>
       </Box>
-    </Box >
+    </Box>
   );
 };
 

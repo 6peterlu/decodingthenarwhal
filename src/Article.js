@@ -60,7 +60,7 @@ const Article = props => {
       const currentURL = `${
         process.env.NODE_ENV === "production"
           ? "https://www.decodingthenarwhal.com"
-          : "http://localhost:3001"
+          : "http://localhost:3000"
       }/article/${props.match.params.articleId}`;
       ReactGA.set({ page: currentURL });
       ReactGA.pageview(currentURL);
@@ -68,22 +68,23 @@ const Article = props => {
     retrieveData();
   }, [props.match.params]);
   return (
-    <Box align="center" pad={size === "wide" ? "xlarge" : "large"}>
+    <Box align="center" pad={size === "wide" ? "xlarge" : "large"} background="#586F7C" animation="fadeIn">
       <Box width={{ max: "large" }}>
-        <HomeButton
-          margin={{ bottom: "medium" }}
-          label="🦄 + 🐳"
-          color="black"
-          icon={<LinkPrevious size="medium" />}
-          alignSelf="start"
-          href={
-            process.env.NODE_ENV === "production"
-              ? "https://www.decodingthenarwhal.com"
-              : "http://localhost:3001"
-          }
-        />
-        {articleData ? (
+
+        {articleData && (
           <>
+            <HomeButton
+              margin={{ bottom: "medium" }}
+              label="🦄 + 🐳"
+              color="white"
+              icon={<LinkPrevious size="medium" />}
+              alignSelf="start"
+              href={
+                process.env.NODE_ENV === "production"
+                  ? "https://www.decodingthenarwhal.com"
+                  : "http://localhost:3000"
+              }
+          />
             <Title size="xxlarge">{articleData.TITLE}</Title>
             <Author size="medium">{articleData.AUTHOR}</Author>
             <Date size="small" margin={{ bottom: "medium" }}>
@@ -92,7 +93,7 @@ const Article = props => {
 
             {articleData.BODY.map(paragraph => {
               return (
-                <Paragraph margin={{ vertical: "small" }}>
+                <Paragraph margin={{ vertical: "small" }} size="large">
                   {paragraph}
                 </Paragraph>
               );
@@ -109,8 +110,6 @@ const Article = props => {
               fill={false}
             />
           </>
-        ) : (
-          <Text>Loading...</Text>
         )}
       </Box>
     </Box>
