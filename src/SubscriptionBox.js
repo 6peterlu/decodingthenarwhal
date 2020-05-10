@@ -1,10 +1,16 @@
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Button, TextInput } from "grommet";
+import { Box, Button, Text, TextInput } from "grommet";
+
+import styled from "styled-components";
+
+const Header = styled(Text)`
+  display: block;
+`;
 
 const SubscriptionForm = ({ subscribe, status, message }) => {
-  const [subscribeLabel, setSubscribeLabel] = React.useState("subscribe");
+  const [subscribeLabel, setSubscribeLabel] = React.useState("+");
   const [emailEntered, setEmailEntered] = React.useState("");
   const [buttonOutlineColor, setButtonOutlineColor] = React.useState("#829399");
   React.useEffect(() => {
@@ -26,22 +32,26 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
     }
   }, [status, message]);
   return (
-    <Box direction="row" width="large">
-      <TextInput
-        value={emailEntered}
-        onChange={event => setEmailEntered(event.target.value)}
-        size="small"
-        focusIndicator={false}
-        placeholder="email"
-      />
-      <Button
-        label={subscribeLabel}
-        onClick={() => {
-          subscribe({ EMAIL: emailEntered });
-        }}
-        color={buttonOutlineColor}
-        style={{"color": "#829399"}}
-      />
+    <Box flex="grow" direction="column-reverse">
+      <Box direction="row" width="medium">
+        <TextInput
+          value={emailEntered}
+          onChange={event => setEmailEntered(event.target.value)}
+          size="small"
+          focusIndicator={false}
+          placeholder="email"
+        />
+        <Button
+          label={subscribeLabel}
+          onClick={() => {
+            subscribe({ EMAIL: emailEntered });
+          }}
+          color={buttonOutlineColor}
+        />
+      </Box>
+      <Header size="small" color="#829399">
+          want notifications for new articles?
+        </Header>
     </Box>
   );
 };
