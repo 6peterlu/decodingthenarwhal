@@ -140,9 +140,6 @@ const Homepage = () => {
 
       <Box direction="column-reverse" fill="vertical">
         <SubscriptionBox />
-        <Header size="small" color="#829399">
-          want notifications for new articles?
-        </Header>
       </Box>
     </Box>
   );
