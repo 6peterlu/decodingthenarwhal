@@ -100,12 +100,12 @@ const Article = props => {
                 {generateEditorsString(articleData.EDITORS)}
               </Editors>
             ) : null}
-            <FeedbackButton
+            {articleData.FEEDBACK && <FeedbackButton
               href={articleData.FEEDBACK}
               label="comment on article here"
               plain={true}
               fill={false}
-            />
+            />}
             <HomeButton
               margin={{ top: "medium" }}
               label="🦄 + 🐳"
