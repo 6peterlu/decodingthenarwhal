@@ -40,8 +40,8 @@ EDITORS:Madison Coots
 ==
 TITLE:The Flipbook - WIP
 AUTHOR:Peter Lu
-DATE:2020/5/17
-URL:https://www.decodingthenarwhal.com/article/the-flipbook-wip
+DATE:2020/5/24
+URL:https://www.decodingthenarwhal.com/article/the-flipbook-chapter-one-wip
 FEEDBACK:
 HOST:
 EDITORS:
