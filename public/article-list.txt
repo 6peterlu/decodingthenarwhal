@@ -38,10 +38,18 @@ FEEDBACK:https://docs.google.com/document/d/12q4UyY-i-T_yefLXF3ZbtJR6MpYiLAQgnIB
 HOST:
 EDITORS:Madison Coots
 ==
-TITLE:The Flipbook, Chapter One - WIP
+TITLE:The Flipbook, Chapter One: Getting up on the right side of the bed (WIP)
 AUTHOR:Peter Lu
 DATE:2020/5/24
 URL:https://www.decodingthenarwhal.com/article/the-flipbook-chapter-one-wip
+FEEDBACK:
+HOST:
+EDITORS:
+==
+TITLE:The Flipbook, Chapter Two: Signals (WIP)
+AUTHOR:Peter Lu
+DATE:2020/5/31
+URL:https://www.decodingthenarwhal.com/article/the-flipbook-chapter-two-wip
 FEEDBACK:
 HOST:
 EDITORS:
