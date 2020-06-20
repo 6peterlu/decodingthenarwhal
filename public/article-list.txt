@@ -54,3 +54,11 @@ FEEDBACK:
 HOST:
 EDITORS:
 ==
+TITLE:Serial, serially
+AUTHOR:Peter Lu
+DATE:2020/6/19
+URL:https://www.decodingthenarwhal.com/article/serial-serially
+FEEDBACK:https://docs.google.com/document/d/19lgtqBopZCJefy-E9V7hKT5PQ5Ipv6-RnQVjt7P0oeQ/edit
+HOST:
+EDITORS:
+==
