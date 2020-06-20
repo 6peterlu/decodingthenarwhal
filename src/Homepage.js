@@ -23,6 +23,10 @@ const defaultQuestionStyle = { textDecoration: "none" };
 
 const externalLinks = [
   {
+    url: "http://blogs.mercurynews.com/warriors/2020/06/19/race-in-america/",
+    title: "Juneteenth reflections from a coworker"
+  },
+  {
     url:
       "https://medium.com/@anika.raghuvanshi/glimpsing-the-top-of-the-world-ee123d393832",
     title: "My friend's experience hiking to Everest basecamp",
