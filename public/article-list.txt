@@ -62,3 +62,11 @@ FEEDBACK:https://docs.google.com/document/d/19lgtqBopZCJefy-E9V7hKT5PQ5Ipv6-RnQV
 HOST:
 EDITORS:Andrea Dahl
 ==
+TITLE:Reflections, year 1
+AUTHOR:Peter Lu
+DATE:2020/6/27
+URL:https://www.decodingthenarwhal.com/article/reflections-year-one
+FEEDBACK:https://docs.google.com/document/d/19lgtqBopZCJefy-E9V7hKT5PQ5Ipv6-RnQVjt7P0oeQ/edit
+HOST:
+EDITORS:
+==
