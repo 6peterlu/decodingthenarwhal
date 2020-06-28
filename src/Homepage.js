@@ -23,27 +23,31 @@ const defaultQuestionStyle = { textDecoration: "none" };
 
 const externalLinks = [
   {
+    url: "http://a1018.g.akamai.net/f/1018/19022/1d/randomhouse1.download.akamai.com/19022/pdf/Paper_Menagerie.pdf",
+    title: "The Paper Menagerie: a short story"
+  },
+  {
     url: "http://blogs.mercurynews.com/warriors/2020/06/19/race-in-america/",
-    title: "Juneteenth reflections from a coworker"
+    title: "Race in America: Juneteenth reflections"
   },
   {
     url:
       "https://medium.com/@anika.raghuvanshi/glimpsing-the-top-of-the-world-ee123d393832",
-    title: "My friend's experience hiking to Everest basecamp",
+    title: "Glimpsing the top of the world: a hiking experience to Everest Basecamp",
   },
   {
     url:
       "https://humanparts.medium.com/the-funny-thing-about-depression-is-that-its-not-funny-73eca71622a6",
-    title: "A story about depression",
+    title: "The funny thing about depression is that it's not funny: an anecdote",
   },
   {
     url:
       "http://www.kameli.net/~raimu/rnd/ted-chiang-story-of-your-life-2000.pdf",
-    title: "The short story Arrival was based on",
+    title: "Story of Your Life: a short story",
   },
   {
     url: "https://www.lewissociety.org/innerring/",
-    title: "C. S. Lewis's musings on being an 'insider'",
+    title: "The Inner Ring: musings on being an 'insider'",
   },
 ];
 
