@@ -4,7 +4,7 @@ DATE:2019/12/10
 URL:https://www.decodingthenarwhal.com/article/on-timeline-moments
 FEEDBACK:https://medium.com/@6peterlu/on-timeline-moments-7176f310f3b5
 HOST:
-EDITORS:Anika Raghuvanshi|Madison Coots|Caroline Young|Claire Shu|Annie Brantigan
+EDITORS:Anika|Madison|Caroline|Claire|Annie
 ==
 TITLE:Why teleportation is the best superpower
 AUTHOR:Peter Lu
@@ -12,7 +12,7 @@ DATE:2020/01/20
 URL:https://www.decodingthenarwhal.com/article/why-teleportation-is-the-best-superpower
 FEEDBACK:https://docs.google.com/document/d/1HmUl-Tb2Z8Lr1iLQC1TrMoRSyJvx5PIh0XFZwgofwAI/edit?usp=sharing
 HOST:
-EDITORS:Anika Raghuvanshi
+EDITORS:Anika
 ==
 TITLE:COVID-19, a snapshot
 AUTHOR:Peter Lu
@@ -20,7 +20,7 @@ DATE:2020/2/29
 URL:https://www.decodingthenarwhal.com/article/covid-19-a-snapshot
 FEEDBACK:https://docs.google.com/document/d/1ZOx48D0Q1ObiUqhnOlf-P-WCDHOgpLsOMrdeBbUOKWc/edit
 HOST:
-EDITORS:Caroline Young
+EDITORS:Caroline
 ==
 TITLE:Archers and airports
 AUTHOR:Peter Lu
@@ -28,7 +28,7 @@ DATE:2020/3/28
 URL:https://www.decodingthenarwhal.com/article/archers-and-airports
 FEEDBACK:https://docs.google.com/document/d/1xv5hbRkzUnnMFkr9-TsaDiB3CV-QXsCzoQ1fnV-HBdg/edit
 HOST:
-EDITORS:Caroline Young|Madison Coots|Anika Raghuvanshi
+EDITORS:Caroline|Madison|Anika
 ==
 TITLE:Know My Name - depictions of truth
 AUTHOR:Peter Lu
@@ -36,7 +36,7 @@ DATE:2020/5/7
 URL:https://www.decodingthenarwhal.com/article/know-my-name-depictions-of-truth
 FEEDBACK:https://docs.google.com/document/d/12q4UyY-i-T_yefLXF3ZbtJR6MpYiLAQgnIBguAqfmfQ/edit
 HOST:
-EDITORS:Madison Coots
+EDITORS:Madison
 ==
 TITLE:The Flipbook, Chapter One: Getting up on the right side of the bed (WIP)
 AUTHOR:Peter Lu
@@ -60,7 +60,7 @@ DATE:2020/6/19
 URL:https://www.decodingthenarwhal.com/article/serial-serially
 FEEDBACK:https://docs.google.com/document/d/19lgtqBopZCJefy-E9V7hKT5PQ5Ipv6-RnQVjt7P0oeQ/edit
 HOST:
-EDITORS:Andrea Dahl
+EDITORS:Andrea
 ==
 TITLE:Reflections, year one
 AUTHOR:Peter Lu
@@ -68,5 +68,5 @@ DATE:2020/6/27
 URL:https://www.decodingthenarwhal.com/article/reflections-year-one
 FEEDBACK:https://docs.google.com/document/d/1BMUe5zxu2xswHqftXpzU5C5D7zTcu8P41P1IBgbs2X8/edit?usp=sharing
 HOST:
-EDITORS:
+EDITORS:Caroline
 ==
