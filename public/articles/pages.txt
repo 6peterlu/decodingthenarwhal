@@ -2,7 +2,7 @@
 <i>You pull out your headphones and look up from your homework. “What was that, Mom?”
 <i>“Can you take the dog out to the yard so she can pee?” You hear a clatter of bowls and pans in the other room, punctuating the end of her directive. When you walk to the kitchen, you see Misty whining and pawing at the door, and when you open it, she flies out like a sprinter off a starting block. You’ve only had Misty for a few months, and you marvel at how fast she’s made this place her home. Even a year later, you still leave home expecting to see the pond near your old apartments, rudely awakened by wide asphalt roads and cookie cutter homes. Sometimes, you find yourself scrolling through pictures your parents took of you hanging out there, and you wish there were more.
 -----
-<i>Page 1: It’s the waning days of summer, where the sun, seemingly aware it will soon be hidden behind a curtain of clouds, burns with its greatest heat and brightness of the year. You see Misty running through the yard, a fluffy lightning bolt streaking back and forth, following the cars driving by on the other side of the fence. The air smells like freshly mowed grass. When she is finally tired out, she flops down onto her belly, her paws green with chlorophyll.
+<i>Page 1: You see Misty running through the yard, a fluffy lightning bolt streaking back and forth, following the cars driving by on the other side of the fence. The air smells like freshly mowed grass. When she is finally tired out, she flops down onto her belly, her paws green with chlorophyll.
 <i>If you whip out your Palm Pixi to take a picture, flip to page 2.
 <i>If you head back inside, shuffle through your cabinet to find your Canon Powershot A460, bring it back outside, and snap a picture, flip to page 3.
 <i>If you go out into the yard and sit in the grass with her, flip to page 4.
@@ -13,7 +13,7 @@ Flip to page 2.
 -----
 Wait, I want to try that again. Go to page 1.
 -----
-<i>Page 1: It’s the waning days of summer, where the sun, seemingly aware it will soon be hidden behind a curtain of clouds, burns with its greatest heat and brightness of the year. You see Misty running through the yard, a fluffy lightning bolt streaking back and forth, following the cars driving by on the other side of the fence. The air smells like freshly mowed grass. When she is finally tired out, she flops down onto her belly, her paws green with chlorophyll.
+<i>Page 1: You see Misty running through the yard, a fluffy lightning bolt streaking back and forth, following the cars driving by on the other side of the fence. The air smells like freshly mowed grass. When she is finally tired out, she flops down onto her belly, her paws green with chlorophyll.
 
 <i>If you whip out your Palm Pixi to take a picture, flip to page 2.
 <i>If you head back inside, shuffle through your cabinet to find your Canon Powershot A460, bring it back outside, and snap a picture, flip to page 3.
@@ -21,7 +21,7 @@ Wait, I want to try that again. Go to page 1.
 -----
 Flip to page 4.
 -----
-<i>Page 4: You leave the comfort of your shade on the patio to sit in the yard with Misty. The direct sunlight beats down on you both, and you wonder why she chooses to lie down here instead of on the cool concrete. You ask her this. She pants back at you. It’s a shame the sunlight of summer disappears right when summer vacation ends, you think. The good things of the year should be spread out more evenly. The breeze ripples across the lawn, and you feel as if you are sitting in a green ocean, with waves lapping all around you. Go to page 5.
+<i>Page 4: You leave the comfort of your shade on the patio to sit with her. The direct sunlight beats down on you both, and you wonder why she chooses to lie down here instead of on the cool concrete. You ask her this. She pants back at you. It’s a shame the sunlight of summer disappears right when summer vacation ends, you think. The good things of the year should be spread out more evenly. The breeze ripples across the lawn, and you feel as if you are sitting in a green ocean, with waves lapping all around you. Go to page 5.
 -----
 Okay. I like that better. Page 5, please.
 -----
@@ -118,7 +118,7 @@ Flip to page 23.
 -----
 I want to try again. Go back to page 1.
 -----
-<i>Page 1: It’s the waning days of summer, where the sun, seemingly aware it will soon be hidden behind a curtain of clouds, burns with its greatest heat and brightness of the year. You see Misty running through the yard, a fluffy lightning bolt streaking back and forth, following the cars driving by on the other side of the fence. The air smells like freshly mowed grass. When she is finally tired out, she flops down onto her belly, her paws green with chlorophyll.
+<i>Page 1: You see Misty running through the yard, a fluffy lightning bolt streaking back and forth, following the cars driving by on the other side of the fence. The air smells like freshly mowed grass. When she is finally tired out, she flops down onto her belly, her paws green with chlorophyll.
 
 <i>If you whip out your Palm Pixi to take a picture, flip to page 2.
 <i>If you head back inside, shuffle through your cabinet to find your Canon Powershot A460, bring it back outside, and snap a picture, flip to page 3.
@@ -130,4 +130,4 @@ Go to page 3.
 -----
 Go to page 4.
 -----
-<i>Page 4: You leave the comfort of your shade on the patio to sit in the yard with Misty. The direct sunlight beats down on you both, and you wonder why she chooses to lie down here instead of on the cool concrete. You ask her this. She pants back at you. It’s a shame the sunlight of summer disappears right when summer vacation ends, you think. The good things of the year should be spread out more evenly. The breeze ripples across the lawn, and you feel as if you are sitting in a green ocean, with waves lapping all around you.
+<i>Page 4: You leave the comfort of your shade on the patio to sit with her. The direct sunlight beats down on you both, and you wonder why she chooses to lie down here instead of on the cool concrete. You ask her this. She pants back at you. It’s a shame the sunlight of summer disappears right when summer vacation ends, you think. The good things of the year should be spread out more evenly. The breeze ripples across the lawn, and you feel as if you are sitting in a green ocean, with waves lapping all around you.
