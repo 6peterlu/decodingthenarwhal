@@ -72,7 +72,7 @@ EDITORS:Caroline
 ==
 TITLE:Pages
 AUTHOR:Peter Lu
-DATE:2020/9/23
+DATE:2020/9/12
 URL:https://www.decodingthenarwhal.com/article/pages
 FEEDBACK:https://docs.google.com/document/d/17AMjfhD-lP4XNN6RGogFr49DEEYy2AjGmlSlqbEKaFw/edit?usp=sharing
 HOST:
