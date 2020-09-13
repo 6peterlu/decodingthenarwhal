@@ -70,3 +70,11 @@ FEEDBACK:https://docs.google.com/document/d/1BMUe5zxu2xswHqftXpzU5C5D7zTcu8P41P1
 HOST:
 EDITORS:Caroline
 ==
+TITLE:Pages
+AUTHOR:Peter Lu
+DATE:2020/9/23
+URL:https://www.decodingthenarwhal.com/article/pages
+FEEDBACK:https://docs.google.com/document/d/17AMjfhD-lP4XNN6RGogFr49DEEYy2AjGmlSlqbEKaFw/edit?usp=sharing
+HOST:
+EDITORS:Cassandra|Miki|Madison
+==

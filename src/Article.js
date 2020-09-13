@@ -49,6 +49,7 @@ const generateEditorsString = editorList => {
 };
 
 const Article = props => {
+  console.log(props.match.params)
   const [articleData, setArticleData] = React.useState(null);
   const size = React.useContext(ResponsiveContext);
   React.useEffect(() => {
@@ -89,6 +90,16 @@ const Article = props => {
             </Date>
 
             {articleData.BODY.map(paragraph => {
+              if (paragraph === "-----") {
+                return (<hr style={{width: "80%", color:"#D8DBE2", borderBottomColor: "#D8DBE2"}}/>)
+                }
+              if (paragraph.startsWith("<i>")) {
+                return (
+                  <Paragraph margin={{ vertical: "small" }} size="large" style={{fontStyle:"italic"}}>
+                    {paragraph.slice(3)}
+                  </Paragraph>
+                );
+              }
               return (
                 <Paragraph margin={{ vertical: "small" }} size="large">
                   {paragraph}
