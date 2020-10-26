@@ -31,7 +31,7 @@ const HomeButton = styled(Button)`
   font-weight: bold;
 `;
 const generateEditorsString = editorList => {
-  const creditPrefix = "With edits from ";
+  const creditPrefix = "Edited/inspired by ";
   const creditSuffix = ".";
   let editorString = "";
   if (editorList.length === 1) {
