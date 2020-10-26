@@ -78,3 +78,10 @@ FEEDBACK:https://docs.google.com/document/d/17AMjfhD-lP4XNN6RGogFr49DEEYy2AjGmlS
 HOST:
 EDITORS:Cassandra|Miki|Madison|my mom
 ==
+Title:Kernel memory
+AUTHOR:Peter Lu
+DATE:2020/10/25
+URL:https://www.decodingthenarwhal.com/article/kernel-memory
+FEEDBACK:https://docs.google.com/document/d/1uJrc2_ifHmrsymQAc5AQtzX3z5ScksbcC7QhnVzuHdA/edit?usp=sharing
+HOST:
+EDITORS:Ari
