@@ -23,6 +23,10 @@ const defaultQuestionStyle = { textDecoration: "none" };
 
 const externalLinks = [
   {
+    url: "https://waitbutwhy.com/2018/04/picking-career.html",
+    title: "How to Pick a Career: a Wait But Why staple"
+  },
+  {
     url: "http://a1018.g.akamai.net/f/1018/19022/1d/randomhouse1.download.akamai.com/19022/pdf/Paper_Menagerie.pdf",
     title: "The Paper Menagerie: a short story"
   },
