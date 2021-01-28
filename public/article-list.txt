@@ -86,3 +86,11 @@ FEEDBACK:https://docs.google.com/document/d/1uJrc2_ifHmrsymQAc5AQtzX3z5ScksbcC7Q
 HOST:
 EDITORS:Ari
 ==
+Title:Bricklaying
+AUTHOR:Peter Lu
+DATE:2020/10/25
+URL:https://www.decodingthenarwhal.com/article/bricklaying
+FEEDBACK:https://docs.google.com/document/d/1C3CSi-r5jTvXCPbZ0oBUsnCpx6_575vNrh_Vd8eaFaA/edit?usp=sharing
+HOST:
+EDITORS:Rachel
+==
