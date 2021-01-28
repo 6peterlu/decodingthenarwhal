@@ -88,7 +88,7 @@ EDITORS:Ari
 ==
 Title:Bricklaying
 AUTHOR:Peter Lu
-DATE:2020/10/25
+DATE:2021/1/27
 URL:https://www.decodingthenarwhal.com/article/bricklaying
 FEEDBACK:https://docs.google.com/document/d/1C3CSi-r5jTvXCPbZ0oBUsnCpx6_575vNrh_Vd8eaFaA/edit?usp=sharing
 HOST:
