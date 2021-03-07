@@ -27,7 +27,7 @@ const externalLinks = [
     title: "How to Pick a Career: a Wait But Why staple"
   },
   {
-    url: "http://a1018.g.akamai.net/f/1018/19022/1d/randomhouse1.download.akamai.com/19022/pdf/Paper_Menagerie.pdf",
+    url: "https://static1.squarespace.com/static/5838a24729687f08e0321a15/t/5bf2bdfa562fa782871c6252/1542635003373/The-Paper-Menagerie+by+Ken+Liu.pdf",
     title: "The Paper Menagerie: a short story"
   },
   {
