@@ -94,3 +94,11 @@ FEEDBACK:https://docs.google.com/document/d/1C3CSi-r5jTvXCPbZ0oBUsnCpx6_575vNrh_
 HOST:
 EDITORS:Rachel
 ==
+Title:Bricklaying
+AUTHOR:Peter Lu
+DATE:2021/6/11
+URL:https://www.decodingthenarwhal.com/article/reflections-year-two
+FEEDBACK:https://docs.google.com/document/d/185RoHrO9oFHVrACiT3VRogeig4IWXOOE_fbP6cN3I0I/edit?usp=sharing
+HOST:
+EDITORS:Claire
+==
