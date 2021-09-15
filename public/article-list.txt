@@ -102,3 +102,10 @@ FEEDBACK:https://docs.google.com/document/d/185RoHrO9oFHVrACiT3VRogeig4IWXOOE_fb
 HOST:
 EDITORS:Claire
 ==
+Title:The ravine
+AUTHOR:Peter Lu
+DATE:2021/9/14
+URL:https://www.decodingthenarwhal.com/article/the-ravine
+FEEDBACK:https://docs.google.com/document/d/1Vl7rw_L7uY0uXKVugVFd7KmhjOCJpZDUUbMgkQuVBA8/edit?usp=sharing
+HOST:
+EDITORS:Lauren|Madison
