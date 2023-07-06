@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Month from "../../resources/Month.svg";
 import { clipYValue } from "../../utils/scroll";
 
@@ -55,16 +56,58 @@ function DaysOfWeek() {
   );
 }
 
+function AnimationSecondHalf({
+  calendarAnimationPercentage,
+}: {
+  calendarAnimationPercentage: number;
+}) {
+  console.log("calendarAnimationPercentage", calendarAnimationPercentage);
+  const fadePercentage = useMemo(() => {
+    return clipYValue((calendarAnimationPercentage - 0.6) * 2, 0, 1);
+  }, [calendarAnimationPercentage]);
+  console.log("fadePercentage", fadePercentage);
+  return (
+    <div
+      style={{
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        top: 0,
+      }}
+    >
+      <div
+        style={{
+          opacity: fadePercentage,
+          padding: 70,
+          backgroundColor: "black",
+          borderRadius: 100,
+
+        }}
+      >
+        and no one would think to check on me.
+      </div>
+    </div>
+  );
+}
+
 function computeTransitionPercentage(
   calendarAnimationPercentage: number,
   index: number
 ) {
+  const scaledAnimationPercentage = clipYValue(
+    calendarAnimationPercentage * 1.8,
+    0,
+    1
+  );
   const totalIndices = 8;
   const overlap = 0.05;
   const start = Math.max(index / totalIndices - overlap, 0);
   const end = Math.min((index + 1) / totalIndices + overlap, 1);
   const transitionPercentage = clipYValue(
-    (calendarAnimationPercentage - start) / (end - start),
+    (scaledAnimationPercentage - start) / (end - start),
     0,
     1
   );
@@ -81,7 +124,7 @@ export default function FadingCalendar({
       <DaysOfWeek />
       <Month />
       <EventBlock
-        text="It"
+        text="...it"
         dateInterval="8-9am"
         topPixels={100}
         dayOfWeek={0}
@@ -167,6 +210,9 @@ export default function FadingCalendar({
           calendarAnimationPercentage,
           7
         )}
+      />
+      <AnimationSecondHalf
+        calendarAnimationPercentage={calendarAnimationPercentage}
       />
     </div>
   );

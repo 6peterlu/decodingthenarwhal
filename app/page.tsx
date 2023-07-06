@@ -1,26 +1,34 @@
 "use client";
 
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+  animations,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import { WheelEvent, useCallback, useEffect, useRef, useState } from "react";
 import { clipYValue } from "./utils/scroll";
 import useWindowDimensions from "./hooks/useWindowDimensions";
 import FadingCalendar from "./components/scrollable/FadingCalendar";
+import HandwrittenNote from "./components/scrollable/HandwrittenNote";
+import {
+  ANIMATIONS_CONFIG,
+  AnimationState,
+  Animations,
+  INITIAL_ANIMATION_STATE,
+  getUpdatedAnimationState,
+} from "./utils/animationController";
 
 const FIXED_THRESHOLD = 100;
 
 export default function Home() {
-  const { scrollYProgress, scrollY } = useScroll();
-  const [pageHeight, setPageHeight] = useState(0);
-  console.log("pageHeight", pageHeight);
-  const [yScrollLevel, setYScrollLevel] = useState(0);
-  const [fixed, setFixed] = useState(false);
   const [textSize, setTextSize] = useState<number | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const { height: windowHeight } = useWindowDimensions();
-
-  const [calendarAnimationPercentage, setCalendarAnimationPercentage] =
-    useState(0);
-  const CALENDAR_ANIMATION_SIZE = 500;
+  const [animationState, setAnimationState] = useState<AnimationState>(
+    INITIAL_ANIMATION_STATE
+  );
+  console.log("pageHeight", animationState.pageHeight);
 
   useEffect(() => {
     if (contentRef.current?.clientHeight) {
@@ -28,41 +36,19 @@ export default function Home() {
     }
   }, [contentRef.current?.clientHeight]);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setYScrollLevel(latest);
-    if (latest > 100) {
-      setFixed(true);
-    } else {
-      setFixed(false);
-    }
-  });
   const onWheel = useCallback(
     (e: WheelEvent<HTMLDivElement>) => {
       if (textSize) {
-        if (
-          (calendarAnimationPercentage === 1 && e.deltaY > 0) ||
-          (calendarAnimationPercentage === 0 && e.deltaY < 0) ||
-          pageHeight > 0
-        ) {
-          const targetPageHeight = clipYValue(
-            pageHeight + e.deltaY,
-            0,
-            textSize - windowHeight
-          );
-          setPageHeight(targetPageHeight);
-        } else {
-          // animate calendar
-          setCalendarAnimationPercentage(
-            clipYValue(
-              calendarAnimationPercentage + e.deltaY / CALENDAR_ANIMATION_SIZE,
-              0,
-              1
-            )
-          );
-        }
+        const newAnimationState = getUpdatedAnimationState(
+          animationState,
+          ANIMATIONS_CONFIG,
+          e.deltaY,
+          textSize - windowHeight
+        );
+        setAnimationState(newAnimationState);
       }
     },
-    [calendarAnimationPercentage, pageHeight, textSize, windowHeight]
+    [animationState, textSize, windowHeight]
   );
   return (
     <div
@@ -74,7 +60,7 @@ export default function Home() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          marginTop: -1 * pageHeight,
+          marginTop: -1 * animationState.pageHeight,
           maxHeight: "100vh",
         }}
       >
@@ -85,10 +71,17 @@ export default function Home() {
           I quit my job to look for and seek out a startup idea. Now, I'm
           building one, a chatbot to help people remember their medications.
           When I first started, I remember having so much difficulty finding a
-          way to focus and drive myself forward. The age of standups and
-          check-ins was over, and in the middle of the pandemic, it felt like I
-          could just fade away, and no one would even think to check on me.
-          Things were a bit different now. I used the sun as a clock now,
+          way to focus and drive myself forward.`}
+          </p>
+          <p>
+            {`The age of standups and
+          check-ins was over, and in the middle of the pandemic...`}
+          </p>
+          <FadingCalendar
+            calendarAnimationPercentage={animationState[Animations.CALENDAR]}
+          />
+          <p style={{ marginBottom: 20 }}>
+            {`Things were a bit different now. I used the sun as a clock now,
           getting up at sunrise, and taking stock of my progress at sunset, as
           if I lived in an ancient agrarian society instead of Divisadero in San
           Francisco. The radio silence on my calendar was precious to me now, so
@@ -96,9 +89,15 @@ export default function Home() {
           was almost always Friday evening, to avoid disrupting the natural
           cadence of my work.`}
           </p>
-          <FadingCalendar
-            calendarAnimationPercentage={calendarAnimationPercentage}
-          />
+          <HandwrittenNote />
+          <svg xmlns="http://www.w3.org/2000/svg" width="451" height="437">
+            <motion.path
+              d="M 239 17 C 142 17 48.5 103 48.5 213.5 C 48.5 324 126 408 244 408 C 362 408 412 319 412 213.5 C 412 108 334 68.5 244 68.5 C 154 68.5 102.68 135.079 99 213.5 C 95.32 291.921 157 350 231 345.5 C 305 341 357.5 290 357.5 219.5 C 357.5 149 314 121 244 121 C 174 121 151.5 167 151.5 213.5 C 151.5 260 176 286.5 224.5 286.5 C 273 286.5 296.5 253 296.5 218.5 C 296.5 184 270 177 244 177 C 218 177 197 198 197 218.5 C 197 239 206 250.5 225.5 250.5 C 245 250.5 253 242 253 218.5"
+              fill="transparent"
+              stroke="rgba(255, 255, 255, 0.69)"
+              strokeLinecap="round"
+            />
+          </svg>
           <p style={{ marginBottom: 20 }}>
             {`I felt more productive than I ever had since my last job. Even so, I
           felt stuck. I had a few users, but growth was stagnant. I didn't see
