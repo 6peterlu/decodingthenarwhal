@@ -18,6 +18,7 @@ import {
   INITIAL_ANIMATION_STATE,
   getUpdatedAnimationState,
 } from "./utils/animationController";
+import MessageSend from "./components/scrollable/MessageSend";
 
 const FIXED_THRESHOLD = 100;
 
@@ -89,23 +90,20 @@ export default function Home() {
           was almost always Friday evening, to avoid disrupting the natural
           cadence of my work.`}
           </p>
-          <HandwrittenNote />
-          <svg xmlns="http://www.w3.org/2000/svg" width="451" height="437">
-            <motion.path
-              d="M 239 17 C 142 17 48.5 103 48.5 213.5 C 48.5 324 126 408 244 408 C 362 408 412 319 412 213.5 C 412 108 334 68.5 244 68.5 C 154 68.5 102.68 135.079 99 213.5 C 95.32 291.921 157 350 231 345.5 C 305 341 357.5 290 357.5 219.5 C 357.5 149 314 121 244 121 C 174 121 151.5 167 151.5 213.5 C 151.5 260 176 286.5 224.5 286.5 C 273 286.5 296.5 253 296.5 218.5 C 296.5 184 270 177 244 177 C 218 177 197 198 197 218.5 C 197 239 206 250.5 225.5 250.5 C 245 250.5 253 242 253 218.5"
-              fill="transparent"
-              stroke="rgba(255, 255, 255, 0.69)"
-              strokeLinecap="round"
-            />
-          </svg>
+
           <p style={{ marginBottom: 20 }}>
             {`I felt more productive than I ever had since my last job. Even so, I
           felt stuck. I had a few users, but growth was stagnant. I didn't see
           how the product could be monetized. When users reported bugs, I would
           excitedly jump into the code to fix them, but when they didn't, it was
           hard not to wonder what I was doing, and whether it was a real job at
-          all. A couple of weeks ago, I put a sticky note on my mirror that read
-          "People are counting on you to remember their medications!" along with
+          all. A couple of weeks ago, I put a sticky note on my mirror that read`}
+          </p>
+          <HandwrittenNote
+            animatePercentage={animationState[Animations.NOTE]}
+          />
+          <p style={{ marginBottom: 20 }}>
+            {`along with
           a few smiley faces. Many days, that sticky note felt like the only
           thing tethering my daily toil to the world outside. The day-night
           cycles that formed my rhythm started to feel more and more like
@@ -123,8 +121,11 @@ export default function Home() {
           message was, I accidentally double tapped, and it starts video calling
           him. Hurriedly, I end the call.`}
           </p>
+          <MessageSend
+            animatePercentage={animationState[Animations.MESSAGESEND]}
+          />
           <p style={{ marginBottom: 20 }}>
-            {`"sorry accident!" I quickly message. As I start typing a longer
+            {`I quickly message. As I start typing a longer
           response, David suddenly starts calling me back. I think briefly about
           how this call is probably the only opportunity I will ever have to
           connect with him again. It's not like we were particularly close, but

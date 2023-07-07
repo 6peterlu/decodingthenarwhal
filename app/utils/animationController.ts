@@ -1,6 +1,7 @@
 export enum Animations {
   CALENDAR = "CALENDAR",
   NOTE = "NOTE",
+  MESSAGESEND = "MESSAGESEND",
 }
 
 type AnimationBlock = {
@@ -18,22 +19,29 @@ export const ANIMATIONS_CONFIG: AnimationsConfigList = [
     length: 500,
     animationName: Animations.CALENDAR,
   },
-  // {
-  //   startHeight: 460,
-  //   length: 500,
-  //   animationName: Animations.NOTE,
-  // },
+  {
+    startHeight: 460,
+    length: 500,
+    animationName: Animations.NOTE,
+  },
+  {
+    startHeight: 1250,
+    length: 500,
+    animationName: Animations.MESSAGESEND,
+  },
 ];
 
 export type AnimationState = {
   [Animations.CALENDAR]: number; // percentage complete
   [Animations.NOTE]: number;
+  [Animations.MESSAGESEND]: number;
   pageHeight: number;
 };
 
 export const INITIAL_ANIMATION_STATE: AnimationState = {
   [Animations.CALENDAR]: 0,
   [Animations.NOTE]: 0,
+  [Animations.MESSAGESEND]: 0,
   pageHeight: 0,
 };
 
