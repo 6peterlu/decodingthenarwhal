@@ -33,8 +33,6 @@ export default function Portals({
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        marginBottom: 200,
-        marginTop: 200,
       }}
       ref={ref}
     >

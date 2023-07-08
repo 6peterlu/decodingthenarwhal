@@ -29,3 +29,11 @@ body {
 html {
   overscroll-behavior: none;
 }
+
+.endmark:last-child::after {
+  content: "\2766";
+  display: inline;
+  font-family: Georgia, "New Times Roman", serif;
+  font-size: 1em;
+  line-height: 0.5;
+}

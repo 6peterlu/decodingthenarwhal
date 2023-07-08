@@ -6,6 +6,7 @@ export enum Animations {
   MESSAGESEND = "MESSAGESEND",
   HALLWAY = "HALLWAY",
   PORTALS = "PORTALS",
+  LAMPS = "LAMPS",
 }
 
 type AnimationBlock = {
@@ -30,7 +31,7 @@ export const ANIMATIONS_CONFIG: AnimationsConfigList = [
   },
   {
     startHeight: 1250,
-    length: 500,
+    length: 250,
     animationName: Animations.MESSAGESEND,
   },
   {
@@ -43,6 +44,11 @@ export const ANIMATIONS_CONFIG: AnimationsConfigList = [
     length: 500,
     animationName: Animations.PORTALS,
   },
+  {
+    startHeight: 3310,
+    length: 1000,
+    animationName: Animations.LAMPS,
+  },
 ];
 
 export type AnimationState = {
@@ -51,6 +57,7 @@ export type AnimationState = {
   [Animations.MESSAGESEND]: number;
   [Animations.HALLWAY]: number;
   [Animations.PORTALS]: number;
+  [Animations.LAMPS]: number;
   pageHeight: number;
 };
 
@@ -60,6 +67,7 @@ export const INITIAL_ANIMATION_STATE: AnimationState = {
   [Animations.MESSAGESEND]: 0,
   [Animations.HALLWAY]: 0,
   [Animations.PORTALS]: 0,
+  [Animations.LAMPS]: 0,
   pageHeight: 0,
 };
 

@@ -39,7 +39,7 @@ function EventBlock({
         opacity: 1 - fadePercentage,
       }}
     >
-      <p style={{ fontWeight: "bold" }}>{text}</p>
+      <p style={{ fontWeight: "bold", fontSize: "0.8rem" }}>{text}</p>
       <p style={{ fontSize: 8 }}>{dateInterval}</p>
     </div>
   );
@@ -85,7 +85,7 @@ function AnimationSecondHalf({
       <div
         style={{
           opacity: fadePercentage,
-          padding: 70,
+          padding: '10%',
           backgroundColor: "black",
           borderRadius: 100,
         }}

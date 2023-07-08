@@ -21,10 +21,19 @@ import {
 import MessageSend from "./components/scrollable/MessageSend";
 import BackgroundController from "./components/scrollable/BackgroundController";
 import Portals from "./components/scrollable/Portals";
+import useTimeout from "./hooks/useTimeout";
+import { useInterval } from "./hooks/useInterval";
+import FloorLamps from "./components/scrollable/FloorLamps";
+
+const MIN_VELOCITY = 0.1;
 
 export default function Home() {
   const [textSize, setTextSize] = useState<number | null>(null);
-  const [lastTouchY, setLastTouchY] = useState<number | null>(null);
+  const [lastTouchY, setLastTouchY] = useState<{
+    y: number;
+    timestamp: number;
+  } | null>(null);
+  const [lastVelocity, setLastVelocity] = useState<number>(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const { height: windowHeight } = useWindowDimensions();
   const [animationState, setAnimationState] = useState<AnimationState>(
@@ -55,14 +64,24 @@ export default function Home() {
   const onTouchMove = useCallback(
     (e: TouchEvent<HTMLDivElement>) => {
       console.log("touchmove");
+      const currentTimestamp = Date.now();
       e.stopPropagation();
       e.preventDefault();
       if (e.touches.length > 1) return;
       if (!lastTouchY) {
-        setLastTouchY(e.touches[0].clientY);
+        setLastTouchY({ y: e.touches[0].clientY, timestamp: Date.now() });
+        setLastVelocity(0);
         return;
       }
-      const deltaY = lastTouchY - e.touches[0].clientY;
+      const deltaY = lastTouchY.y - e.touches[0].clientY;
+      const velocity = deltaY / (currentTimestamp - lastTouchY.timestamp);
+
+      // clamp velocity
+      if (Math.abs(velocity) > MIN_VELOCITY) {
+        setLastVelocity(velocity);
+      } else {
+        setLastVelocity(0);
+      }
       console.log("deltaY", deltaY);
       if (textSize) {
         const newAnimationState = getUpdatedAnimationState(
@@ -73,13 +92,33 @@ export default function Home() {
         );
         setAnimationState(newAnimationState);
       }
-      setLastTouchY(e.touches[0].clientY);
+      setLastTouchY({ y: e.touches[0].clientY, timestamp: Date.now() });
     },
     [animationState, lastTouchY, textSize, windowHeight]
   );
   const onTouchEnd = useCallback(() => {
+    console.log("touch end");
+    console.log("velocity", lastVelocity);
     setLastTouchY(null);
-  }, []);
+  }, [lastVelocity]);
+  useInterval(() => {
+    if (lastVelocity !== 0 && textSize && lastTouchY === null) {
+      const newAnimationState = getUpdatedAnimationState(
+        animationState,
+        ANIMATIONS_CONFIG,
+        lastVelocity * 4,
+        textSize - windowHeight
+      );
+      setAnimationState(newAnimationState);
+      const newVelocity = lastVelocity * 0.99;
+      if (Math.abs(newVelocity) < MIN_VELOCITY) {
+        setLastVelocity(0);
+      } else {
+        setLastVelocity(newVelocity);
+      }
+    }
+  }, 1);
+
   return (
     <div
       style={{
@@ -106,7 +145,14 @@ export default function Home() {
           top: 0,
         }}
       >
-        <div ref={contentRef}>
+        <div
+          ref={contentRef}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <div
             style={{
               display: "flex",
@@ -119,7 +165,13 @@ export default function Home() {
             <p style={{ fontSize: 40, fontWeight: "bold" }}>Portals</p>
             <p>by Peter Lu</p>
           </div>
-          <div style={{ maxWidth: 700, marginRight: 40, marginLeft: 40 }}>
+          <div
+            style={{
+              maxWidth: 700,
+              paddingLeft: 40,
+              paddingRight: 40,
+            }}
+          >
             <p style={{ marginBottom: 20 }}>
               {`This is what you wanted, I tell myself for the millionth time. The you
           of a year ago would have been so excited to be here. Eight months ago,
@@ -212,7 +264,14 @@ export default function Home() {
           since high school?"`}
             </p>
             <p
-              style={{ marginBottom: 200, marginTop: 200 }}
+              style={{
+                marginBottom: 200,
+                marginTop: 200,
+                padding: 20,
+                marginLeft: -20,
+                marginRight: -20,
+                backgroundColor: "black",
+              }}
               id={`scrollable-${Animations.HALLWAY}`}
             >
               {`And then we're reminiscing together on the cramped, brick-lined halls
@@ -235,7 +294,7 @@ export default function Home() {
           so many years ago.`}
             </p>
             <Portals animationPercentage={animationState[Animations.PORTALS]} />
-            <p style={{ marginBottom: 200 }}>
+            <p className="endmark">
               {`I think about all the messages my dozen users send
           to my medication reminding chatbot, and the floor lamps they turn on
           at night, when the sky darkens. I feel full of light, as if I were the
@@ -243,6 +302,7 @@ export default function Home() {
           and not the hot filament of the IKEA floor lamp in the corner.`}
             </p>
           </div>
+          <FloorLamps animationPercentage={animationState[Animations.LAMPS]} />
         </div>
       </div>
     </div>
