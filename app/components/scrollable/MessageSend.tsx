@@ -20,7 +20,8 @@ export default function MessageSend({
       <div
         style={{
           height: 300,
-          width: 500,
+          maxWidth: 500,
+          width: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",

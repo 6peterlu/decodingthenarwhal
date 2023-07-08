@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import Month from "../../resources/Month.svg";
 import { clipYValue } from "../../utils/scroll";
+import useResizeObserver from "use-resize-observer";
 
 function EventBlock({
   text,
@@ -9,6 +10,7 @@ function EventBlock({
   dayOfWeek,
   color,
   fadePercentage,
+  columnWidth,
 }: {
   text: string;
   dateInterval: string;
@@ -16,11 +18,12 @@ function EventBlock({
   dayOfWeek: number;
   color: string;
   fadePercentage: number;
+  columnWidth: number;
 }) {
   return (
     <div
       style={{
-        width: 100,
+        width: columnWidth,
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
@@ -31,7 +34,7 @@ function EventBlock({
         paddingBottom: 4,
         paddingLeft: 4,
         borderRadius: 4,
-        left: 100 * dayOfWeek - 100 * fadePercentage,
+        left: columnWidth * dayOfWeek - columnWidth * fadePercentage,
         opacity: 1 - fadePercentage,
       }}
     >
@@ -84,7 +87,6 @@ function AnimationSecondHalf({
           padding: 70,
           backgroundColor: "black",
           borderRadius: 100,
-
         }}
       >
         and no one would think to check on me.
@@ -119,8 +121,10 @@ export default function FadingCalendar({
 }: {
   calendarAnimationPercentage: number;
 }): JSX.Element {
+  const { ref, width = 1 } = useResizeObserver<HTMLDivElement>();
+  const columnWidth = width / 7;
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative" }} ref={ref}>
       <DaysOfWeek />
       <Month />
       <EventBlock
@@ -128,6 +132,7 @@ export default function FadingCalendar({
         dateInterval="8-9am"
         topPixels={100}
         dayOfWeek={0}
+        columnWidth={columnWidth}
         color="#0a2239"
         fadePercentage={computeTransitionPercentage(
           calendarAnimationPercentage,
@@ -144,6 +149,7 @@ export default function FadingCalendar({
           calendarAnimationPercentage,
           1
         )}
+        columnWidth={columnWidth}
       />
       <EventBlock
         text="like"
@@ -155,6 +161,7 @@ export default function FadingCalendar({
           calendarAnimationPercentage,
           2
         )}
+        columnWidth={columnWidth}
       />
       <EventBlock
         text="I"
@@ -166,6 +173,7 @@ export default function FadingCalendar({
           calendarAnimationPercentage,
           3
         )}
+        columnWidth={columnWidth}
       />
       <EventBlock
         text="could"
@@ -177,6 +185,7 @@ export default function FadingCalendar({
           calendarAnimationPercentage,
           4
         )}
+        columnWidth={columnWidth}
       />
       <EventBlock
         text="just"
@@ -188,6 +197,7 @@ export default function FadingCalendar({
           calendarAnimationPercentage,
           5
         )}
+        columnWidth={columnWidth}
       />
       <EventBlock
         text="fade"
@@ -199,6 +209,7 @@ export default function FadingCalendar({
           calendarAnimationPercentage,
           6
         )}
+        columnWidth={columnWidth}
       />
       <EventBlock
         text="away"
@@ -210,6 +221,7 @@ export default function FadingCalendar({
           calendarAnimationPercentage,
           7
         )}
+        columnWidth={columnWidth}
       />
       <AnimationSecondHalf
         calendarAnimationPercentage={calendarAnimationPercentage}
