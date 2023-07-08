@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  animations,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "framer-motion";
 import { WheelEvent, useCallback, useEffect, useRef, useState } from "react";
-import { clipYValue } from "./utils/scroll";
 import useWindowDimensions from "./hooks/useWindowDimensions";
 import FadingCalendar from "./components/scrollable/FadingCalendar";
 import HandwrittenNote from "./components/scrollable/HandwrittenNote";
@@ -19,11 +12,8 @@ import {
   getUpdatedAnimationState,
 } from "./utils/animationController";
 import MessageSend from "./components/scrollable/MessageSend";
-import LockerBackgroundImage from "./resources/LockerHallway.jpg";
 import BackgroundController from "./components/scrollable/BackgroundController";
 import Portals from "./components/scrollable/Portals";
-
-const FIXED_THRESHOLD = 100;
 
 export default function Home() {
   const [textSize, setTextSize] = useState<number | null>(null);
@@ -183,7 +173,7 @@ export default function Home() {
               {`"That's amazing. You two look the same too, wow! Have you kept up
           since high school?"`}
             </p>
-            <p style={{ marginBottom: 200, marginTop: 200 }}>
+            <p style={{ marginBottom: 200, marginTop: 200 }} id={`scrollable-${Animations.HALLWAY}`}>
               {`And then we're reminiscing together on the cramped, brick-lined halls
           of our old high school building, now torn down. We joke about the
           idiosyncrasies of all the sophomore year teachers, and the cringe

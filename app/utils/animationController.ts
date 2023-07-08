@@ -1,3 +1,5 @@
+import { clipYValue } from "./scroll";
+
 export enum Animations {
   CALENDAR = "CALENDAR",
   NOTE = "NOTE",
@@ -71,21 +73,33 @@ export function getUpdatedAnimationState(
   let deltaRemaining = deltaY;
   if (deltaY > 0) {
     for (const config of animationConfig) {
-      if (config.startHeight < newAnimationState.pageHeight) {
+      let startHeight = document.getElementById(
+        `scrollable-${config.animationName}`
+      )?.offsetTop;
+      let componentHeight = document.getElementById(
+        `scrollable-${config.animationName}`
+      )?.clientHeight;
+      if (!startHeight || !componentHeight) {
         continue;
       }
-      if (newAnimationState.pageHeight < config.startHeight - TOLERANCE) {
+      console.log(config.animationName);
+      console.log(maxHeight - window.innerHeight / 3);
+      startHeight = clipYValue(
+        startHeight - window.innerHeight / 3,
+        0,
+        maxHeight - window.innerHeight / 3
+      );
+      console.log(startHeight);
+      if (newAnimationState.pageHeight < startHeight - TOLERANCE) {
         const deltaToConsume = Math.min(
-          config.startHeight - newAnimationState.pageHeight,
+          startHeight - newAnimationState.pageHeight,
           deltaRemaining
         );
         newAnimationState.pageHeight =
           newAnimationState.pageHeight + deltaToConsume;
         deltaRemaining -= deltaToConsume;
       }
-      if (
-        Math.abs(config.startHeight - newAnimationState.pageHeight) < TOLERANCE
-      ) {
+      if (Math.abs(startHeight - newAnimationState.pageHeight) < TOLERANCE) {
         // increment animation state
         const deltaToConsume = Math.min(
           config.length * (1 - newAnimationState[config.animationName]),
@@ -106,21 +120,36 @@ export function getUpdatedAnimationState(
     }
   } else if (deltaY < 0) {
     for (const config of animationConfig.slice().reverse()) {
-      if (config.startHeight > newAnimationState.pageHeight) {
+      console.log(config.animationName);
+      let startHeight = document.getElementById(
+        `scrollable-${config.animationName}`
+      )?.offsetTop;
+      let componentHeight = document.getElementById(
+        `scrollable-${config.animationName}`
+      )?.clientHeight;
+      if (!startHeight || !componentHeight) {
         continue;
       }
-      if (config.startHeight < newAnimationState.pageHeight - TOLERANCE) {
+      console.log(window.innerHeight / 3);
+      console.log(startHeight);
+      startHeight = clipYValue(
+        startHeight - window.innerHeight / 3,
+        0,
+        maxHeight - window.innerHeight / 3
+      );
+      if (startHeight > newAnimationState.pageHeight) {
+        continue;
+      }
+      if (startHeight < newAnimationState.pageHeight - TOLERANCE) {
         const deltaToConsume = Math.max(
-          config.startHeight - newAnimationState.pageHeight,
+          startHeight - newAnimationState.pageHeight,
           deltaRemaining
         );
         newAnimationState.pageHeight =
           newAnimationState.pageHeight + deltaToConsume;
         deltaRemaining -= deltaToConsume;
       }
-      if (
-        Math.abs(config.startHeight - newAnimationState.pageHeight) < TOLERANCE
-      ) {
+      if (Math.abs(startHeight - newAnimationState.pageHeight) < TOLERANCE) {
         // increment animation state
         const deltaToConsume = Math.max(
           -1 * config.length * newAnimationState[config.animationName],

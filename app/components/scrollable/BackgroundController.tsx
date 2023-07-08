@@ -4,7 +4,7 @@ function computeOpacityFromAnimationPercentage(animationPercentage: number) {
   } else if (animationPercentage < 0.7) {
     return 0.5;
   } else {
-    return 0.5 - (animationPercentage - 0.7) * 0.5 / 0.3;
+    return 0.5 - ((animationPercentage - 0.7) * 0.5) / 0.3;
   }
 }
 
@@ -13,6 +13,7 @@ export default function BackgroundController({
 }: {
   animationPercentage: number;
 }) {
+  console.log("background animation percentage", animationPercentage);
   return (
     <div
       style={{

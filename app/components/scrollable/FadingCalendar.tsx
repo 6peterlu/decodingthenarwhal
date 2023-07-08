@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import Month from "../../resources/Month.svg";
 import { clipYValue } from "../../utils/scroll";
 import useResizeObserver from "use-resize-observer";
+import { Animations } from "../../utils/animationController";
 
 function EventBlock({
   text,
@@ -121,16 +122,21 @@ export default function FadingCalendar({
 }: {
   calendarAnimationPercentage: number;
 }): JSX.Element {
-  const { ref, width = 1 } = useResizeObserver<HTMLDivElement>();
+  const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
   const columnWidth = width / 7;
+  const gridHeight = height / 10;
   return (
-    <div style={{ position: "relative" }} ref={ref}>
+    <div
+      style={{ position: "relative" }}
+      ref={ref}
+      id={`scrollable-${Animations.CALENDAR}`}
+    >
       <DaysOfWeek />
       <Month />
       <EventBlock
         text="...it"
         dateInterval="8-9am"
-        topPixels={100}
+        topPixels={gridHeight * 1}
         dayOfWeek={0}
         columnWidth={columnWidth}
         color="#0a2239"
@@ -141,8 +147,8 @@ export default function FadingCalendar({
       />
       <EventBlock
         text="felt"
-        dateInterval="8-9am"
-        topPixels={100}
+        dateInterval="9-10am"
+        topPixels={gridHeight * 2}
         color="#53A2BE"
         dayOfWeek={1}
         fadePercentage={computeTransitionPercentage(
@@ -153,8 +159,8 @@ export default function FadingCalendar({
       />
       <EventBlock
         text="like"
-        dateInterval="8-9am"
-        topPixels={100}
+        dateInterval="10-11am"
+        topPixels={gridHeight * 3}
         dayOfWeek={2}
         color="#1D84B5"
         fadePercentage={computeTransitionPercentage(
@@ -165,8 +171,8 @@ export default function FadingCalendar({
       />
       <EventBlock
         text="I"
-        dateInterval="8-9am"
-        topPixels={100}
+        dateInterval="10-11am"
+        topPixels={gridHeight * 3}
         dayOfWeek={3}
         color="#132E32"
         fadePercentage={computeTransitionPercentage(
@@ -177,8 +183,8 @@ export default function FadingCalendar({
       />
       <EventBlock
         text="could"
-        dateInterval="8-9am"
-        topPixels={100}
+        dateInterval="1-2pm"
+        topPixels={gridHeight * 5}
         dayOfWeek={4}
         color="#176087"
         fadePercentage={computeTransitionPercentage(
@@ -189,8 +195,8 @@ export default function FadingCalendar({
       />
       <EventBlock
         text="just"
-        dateInterval="8-9am"
-        topPixels={100}
+        dateInterval="1:30-2pm"
+        topPixels={gridHeight * 5.5}
         dayOfWeek={5}
         color="#2C6E92"
         fadePercentage={computeTransitionPercentage(
@@ -201,8 +207,8 @@ export default function FadingCalendar({
       />
       <EventBlock
         text="fade"
-        dateInterval="8-9am"
-        topPixels={100}
+        dateInterval="2-3pm"
+        topPixels={gridHeight * 6}
         dayOfWeek={6}
         color="#3F7B9C"
         fadePercentage={computeTransitionPercentage(
@@ -213,8 +219,8 @@ export default function FadingCalendar({
       />
       <EventBlock
         text="away"
-        dateInterval="8-9am"
-        topPixels={300}
+        dateInterval="5-6pm"
+        topPixels={gridHeight * 8}
         dayOfWeek={6}
         color="#5087A5"
         fadePercentage={computeTransitionPercentage(

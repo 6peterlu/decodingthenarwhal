@@ -4,6 +4,7 @@ import everydayscene2 from "../../resources/everydayscene2.png";
 import everydayscene3 from "../../resources/everydayscene3.png";
 import everydayscene4 from "../../resources/everydayscene4.png";
 import InstagramMessageList from "../../resources/InstagramMessageList.svg";
+import { Animations } from "@/app/utils/animationController";
 
 function computePortalExpansionPercentages(
   animationPercentage: number,
@@ -22,10 +23,6 @@ export default function Portals({
 }: {
   animationPercentage: number;
 }) {
-  console.log(computePortalExpansionPercentages(animationPercentage, 0, 4));
-  console.log(computePortalExpansionPercentages(animationPercentage, 0, 4));
-  console.log(computePortalExpansionPercentages(animationPercentage, 0, 4));
-  console.log(computePortalExpansionPercentages(animationPercentage, 0, 4));
   return (
     <div
       style={{
@@ -33,8 +30,10 @@ export default function Portals({
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        marginBottom: 50,
+        marginBottom: 200,
+        marginTop: 200,
       }}
+      id={`scrollable-${Animations.PORTALS}`}
     >
       <div
         style={{

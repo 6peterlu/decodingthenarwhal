@@ -1,8 +1,8 @@
-import { clipYValue } from "@/app/utils/scroll";
-import HandwrittenNoteSvg from "../../resources/HandwrittenNote.svg";
+import { clipYValue } from "../../utils/scroll";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import StickyNote from "../../resources/StickyNote.png";
+import { Animations } from "../../utils/animationController";
 
 const transition = { duration: 4, yoyo: Infinity, ease: "easeInOut" };
 
@@ -89,8 +89,9 @@ export default function HandwrittenNote({
         display: "flex",
         justifyContent: "center",
         position: "relative",
-        height: 300
+        height: 300,
       }}
+      id={`scrollable-${Animations.NOTE}`}
     >
       <div style={{ width: 300, height: 300, position: "absolute" }}>
         <Image

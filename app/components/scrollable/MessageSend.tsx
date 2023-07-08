@@ -1,3 +1,4 @@
+import { Animations } from "@/app/utils/animationController";
 import MessageBar from "../../resources/MessageBar.svg";
 
 function computeMessageHeight(animatePercentage: number) {
@@ -16,6 +17,7 @@ export default function MessageSend({
         flexDirection: "column",
         alignItems: "center",
       }}
+      id={`scrollable-${Animations.MESSAGESEND}`}
     >
       <div
         style={{
