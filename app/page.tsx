@@ -1,6 +1,13 @@
 "use client";
 
-import { WheelEvent, useCallback, useEffect, useRef, useState } from "react";
+import {
+  TouchEvent,
+  WheelEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import useWindowDimensions from "./hooks/useWindowDimensions";
 import FadingCalendar from "./components/scrollable/FadingCalendar";
 import HandwrittenNote from "./components/scrollable/HandwrittenNote";
@@ -17,6 +24,7 @@ import Portals from "./components/scrollable/Portals";
 
 export default function Home() {
   const [textSize, setTextSize] = useState<number | null>(null);
+  const [lastTouchY, setLastTouchY] = useState<number | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const { height: windowHeight } = useWindowDimensions();
   const [animationState, setAnimationState] = useState<AnimationState>(
@@ -44,6 +52,34 @@ export default function Home() {
     },
     [animationState, textSize, windowHeight]
   );
+  const onTouchMove = useCallback(
+    (e: TouchEvent<HTMLDivElement>) => {
+      console.log("touchmove");
+      e.stopPropagation();
+      e.preventDefault();
+      if (e.touches.length > 1) return;
+      if (!lastTouchY) {
+        setLastTouchY(e.touches[0].clientY);
+        return;
+      }
+      const deltaY = lastTouchY - e.touches[0].clientY;
+      console.log("deltaY", deltaY);
+      if (textSize) {
+        const newAnimationState = getUpdatedAnimationState(
+          animationState,
+          ANIMATIONS_CONFIG,
+          deltaY,
+          textSize - windowHeight
+        );
+        setAnimationState(newAnimationState);
+      }
+      setLastTouchY(e.touches[0].clientY);
+    },
+    [animationState, lastTouchY, textSize, windowHeight]
+  );
+  const onTouchEnd = useCallback(() => {
+    setLastTouchY(null);
+  }, []);
   return (
     <div
       style={{
@@ -52,6 +88,8 @@ export default function Home() {
         height: "100%",
       }}
       onWheel={onWheel}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       <BackgroundController
         animationPercentage={animationState[Animations.HALLWAY]}
@@ -173,7 +211,10 @@ export default function Home() {
               {`"That's amazing. You two look the same too, wow! Have you kept up
           since high school?"`}
             </p>
-            <p style={{ marginBottom: 200, marginTop: 200 }} id={`scrollable-${Animations.HALLWAY}`}>
+            <p
+              style={{ marginBottom: 200, marginTop: 200 }}
+              id={`scrollable-${Animations.HALLWAY}`}
+            >
               {`And then we're reminiscing together on the cramped, brick-lined halls
           of our old high school building, now torn down. We joke about the
           idiosyncrasies of all the sophomore year teachers, and the cringe

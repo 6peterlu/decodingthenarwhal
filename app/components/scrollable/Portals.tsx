@@ -5,6 +5,7 @@ import everydayscene3 from "../../resources/everydayscene3.png";
 import everydayscene4 from "../../resources/everydayscene4.png";
 import InstagramMessageList from "../../resources/InstagramMessageList.svg";
 import { Animations } from "@/app/utils/animationController";
+import useResizeObserver from "use-resize-observer";
 
 function computePortalExpansionPercentages(
   animationPercentage: number,
@@ -23,6 +24,8 @@ export default function Portals({
 }: {
   animationPercentage: number;
 }) {
+  const { ref, height = 1 } = useResizeObserver<HTMLDivElement>();
+  const heightUnits = height / 20;
   return (
     <div
       style={{
@@ -33,7 +36,7 @@ export default function Portals({
         marginBottom: 200,
         marginTop: 200,
       }}
-      id={`scrollable-${Animations.PORTALS}`}
+      ref={ref}
     >
       <div
         style={{
@@ -42,6 +45,7 @@ export default function Portals({
           height: 600,
           position: "relative",
         }}
+        id={`scrollable-${Animations.PORTALS}`}
       >
         <InstagramMessageList />
         <div
@@ -49,7 +53,7 @@ export default function Portals({
             width: 100,
             height: 100,
             position: "absolute",
-            top: 10,
+            top: heightUnits,
             left: 100,
             // backgroundColor: "red",
             clipPath: `circle(${computePortalExpansionPercentages(
@@ -67,7 +71,7 @@ export default function Portals({
             width: 100,
             height: 100,
             position: "absolute",
-            top: 133,
+            top: heightUnits * 3,
             left: 200,
             // backgroundColor: "red",
             clipPath: `circle(${computePortalExpansionPercentages(
@@ -85,7 +89,7 @@ export default function Portals({
             width: 100,
             height: 100,
             position: "absolute",
-            top: 212,
+            top: heightUnits * 5,
             left: 40,
             // backgroundColor: "red",
             clipPath: `circle(${computePortalExpansionPercentages(
@@ -103,7 +107,7 @@ export default function Portals({
             width: 100,
             height: 100,
             position: "absolute",
-            top: 460,
+            top: heightUnits * 8,
             left: 70,
             // backgroundColor: "red",
             clipPath: `circle(${computePortalExpansionPercentages(

@@ -85,9 +85,9 @@ export function getUpdatedAnimationState(
       console.log(config.animationName);
       console.log(maxHeight - window.innerHeight / 3);
       startHeight = clipYValue(
-        startHeight - window.innerHeight / 3,
+        startHeight - window.innerHeight / 4,
         0,
-        maxHeight - window.innerHeight / 3
+        maxHeight
       );
       console.log(startHeight);
       if (newAnimationState.pageHeight < startHeight - TOLERANCE) {
@@ -133,9 +133,9 @@ export function getUpdatedAnimationState(
       console.log(window.innerHeight / 3);
       console.log(startHeight);
       startHeight = clipYValue(
-        startHeight - window.innerHeight / 3,
+        startHeight - window.innerHeight / 4,
         0,
-        maxHeight - window.innerHeight / 3
+        maxHeight
       );
       if (startHeight > newAnimationState.pageHeight) {
         continue;
