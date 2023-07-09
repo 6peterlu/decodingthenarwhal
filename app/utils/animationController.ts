@@ -90,14 +90,11 @@ export function getUpdatedAnimationState(
       if (!startHeight || !componentHeight) {
         continue;
       }
-      console.log(config.animationName);
-      console.log(maxHeight - window.innerHeight / 3);
       startHeight = clipYValue(
         startHeight - window.innerHeight / 4,
         0,
         maxHeight
       );
-      console.log(startHeight);
       if (newAnimationState.pageHeight < startHeight - TOLERANCE) {
         const deltaToConsume = Math.min(
           startHeight - newAnimationState.pageHeight,
@@ -128,7 +125,6 @@ export function getUpdatedAnimationState(
     }
   } else if (deltaY < 0) {
     for (const config of animationConfig.slice().reverse()) {
-      console.log(config.animationName);
       let startHeight = document.getElementById(
         `scrollable-${config.animationName}`
       )?.offsetTop;
@@ -138,8 +134,6 @@ export function getUpdatedAnimationState(
       if (!startHeight || !componentHeight) {
         continue;
       }
-      console.log(window.innerHeight / 3);
-      console.log(startHeight);
       startHeight = clipYValue(
         startHeight - window.innerHeight / 4,
         0,

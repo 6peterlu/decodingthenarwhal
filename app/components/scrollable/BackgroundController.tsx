@@ -15,7 +15,6 @@ export default function BackgroundController({
 }: {
   animationPercentage: number;
 }) {
-  console.log("background animation percentage", animationPercentage);
   return (
     <div
       style={{

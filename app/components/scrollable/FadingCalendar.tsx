@@ -65,11 +65,9 @@ function AnimationSecondHalf({
 }: {
   calendarAnimationPercentage: number;
 }) {
-  console.log("calendarAnimationPercentage", calendarAnimationPercentage);
   const fadePercentage = useMemo(() => {
     return clipYValue((calendarAnimationPercentage - 0.6) * 2, 0, 1);
   }, [calendarAnimationPercentage]);
-  console.log("fadePercentage", fadePercentage);
   return (
     <div
       style={{

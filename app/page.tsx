@@ -41,7 +41,6 @@ export default function Home() {
   const [animationState, setAnimationState] = useState<AnimationState>(
     INITIAL_ANIMATION_STATE
   );
-  console.log("pageHeight", animationState.pageHeight);
 
   useEffect(() => {
     if (contentRef.current?.clientHeight) {
@@ -65,7 +64,6 @@ export default function Home() {
   );
   const onTouchMove = useCallback(
     (e: TouchEvent<HTMLDivElement>) => {
-      console.log("touchmove");
       const currentTimestamp = Date.now();
       e.stopPropagation();
       e.preventDefault();
@@ -84,7 +82,6 @@ export default function Home() {
       } else {
         setLastVelocity(0);
       }
-      console.log("deltaY", deltaY);
       if (textSize) {
         const newAnimationState = getUpdatedAnimationState(
           animationState,
@@ -99,10 +96,8 @@ export default function Home() {
     [animationState, lastTouchY, textSize, windowHeight]
   );
   const onTouchEnd = useCallback(() => {
-    console.log("touch end");
-    console.log("velocity", lastVelocity);
     setLastTouchY(null);
-  }, [lastVelocity]);
+  }, []);
   useInterval(() => {
     if (lastVelocity !== 0 && textSize && lastTouchY === null) {
       const newAnimationState = getUpdatedAnimationState(
