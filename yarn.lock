@@ -1372,6 +1372,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
+"@types/jsonp@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@types/jsonp/-/jsonp-0.2.1.tgz#3e97f694546bcfaa6dc4fd869302b1469836b651"
+  integrity sha512-5OZzjBntljpajg4RmydvZEyYCjiVVq6AZOm/TVIxSb7FiySOur3B/YcUEtdoy01FEzwiiUP7qLtUE6qiOF/kfQ==
+
 "@types/node@20.3.2":
   version "20.3.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.3.2.tgz#fa6a90f2600e052a03c18b8cb3fd83dd4e599898"
@@ -3649,13 +3654,6 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-mailchimp-form@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-mailchimp-form/-/react-mailchimp-form-1.0.2.tgz#e4dfdc6a36bb2fb274ea49f2b19f9d54bbdfe65f"
-  integrity sha512-G4eONuXCIiAbWw9xN5Klj38SekUV5R+crbF5+9kClDdONaz0XLbo+Nbg9kLH5zfMthyKVPKEgdosEjn/Wux8qA==
-  dependencies:
-    jsonp "^0.2.1"
 
 react@18.2.0:
   version "18.2.0"

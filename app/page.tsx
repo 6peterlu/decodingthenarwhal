@@ -23,7 +23,7 @@ import BackgroundController from "./components/scrollable/BackgroundController";
 import Portals from "./components/scrollable/Portals";
 import { useInterval } from "./hooks/useInterval";
 import FloorLamps from "./components/scrollable/FloorLamps";
-import Mailchimp from "react-mailchimp-form";
+import Mailchimp from "./components/mailchimp/EmailSubmitForm";
 
 const MIN_VELOCITY = 0.1;
 const url =
@@ -302,17 +302,7 @@ export default function Home() {
             </p>
           </div>
           <div style={{ color: "black", backgroundColor: "white" }}>
-            <Mailchimp
-              action="https://draftzero.us21.list-manage.com/subscribe/post?u=a55e1fc43149a5a4f4df3914a&amp;id=3f3fff1d44&amp;f_id=00162ae7f0"
-              fields={[
-                {
-                  name: "EMAIL",
-                  placeholder: "Email",
-                  type: "email",
-                  required: true,
-                },
-              ]}
-            />
+            <Mailchimp />
           </div>
           <FloorLamps animationPercentage={animationState[Animations.LAMPS]} />
         </div>
